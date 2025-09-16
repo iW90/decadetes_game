@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-var _wait_time: float = 2.5
+var _wait_time: float = 1
 var _scene_timer: SceneTreeTimer = null
 
 func _wait(action: Callable) -> void:
@@ -16,7 +16,8 @@ func _ready() -> void:
 #	_wait(func(): animation_player.play("intro"))
 
 func _on_animation_finished(_anim_name: StringName) -> void:
-	_wait(queue_free)
+	await _wait(queue_free)
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/menu.tscn")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("ui_accept"):

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bww7fw8oscti6"]
 
-[ext_resource type="Script" uid="uid://0iy6fs3g3xve" path="res://scripts/progress_bar.gd" id="1_8un81"]
-[ext_resource type="Texture2D" uid="uid://dtn61ntkr2y6i" path="res://assets/progress_bar/computer.png" id="1_vt3ux"]
-[ext_resource type="FontFile" uid="uid://eunvrt3o0wn7" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_1iuoo"]
+[ext_resource type="Script" uid="uid://0iy6fs3g3xve" path="res://scripts/progress_bar.gd" id="1_j60hp"]
+[ext_resource type="Texture2D" uid="uid://dtn61ntkr2y6i" path="res://assets/progress_bar/computer.png" id="2_hrl3v"]
+[ext_resource type="FontFile" uid="uid://eunvrt3o0wn7" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="3_5ca1b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vt3ux"]
 
@@ -28,10 +28,10 @@ custom_minimum_size = Vector2(24, 240)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 264.0
+offset_left = -580.0
+offset_top = 55.0
+offset_right = -556.0
+offset_bottom = 295.0
 grow_horizontal = 0
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_vt3ux")
@@ -39,14 +39,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_8un81")
 value = 100.0
 fill_mode = 3
 show_percentage = false
-script = ExtResource("1_8un81")
+script = ExtResource("1_j60hp")
 
 [node name="EchoBar" type="ProgressBar" parent="ProgressBar"]
 z_index = -1
 custom_minimum_size = Vector2(24, 240)
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 241.0
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_vt3ux")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1iuoo")
@@ -55,19 +56,20 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="ProgressBar"]
-wait_time = 0.3
+wait_time = 0.6
 autostart = true
 
 [node name="Computer" type="Sprite2D" parent="."]
-position = Vector2(952, 128)
-texture = ExtResource("1_vt3ux")
+position = Vector2(419, 153)
+scale = Vector2(1.28125, 1.19531)
+texture = ExtResource("2_hrl3v")
 
 [node name="ComputerScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true
-offset_left = 869.0
-offset_top = 60.0
-offset_right = 980.0
-offset_bottom = 140.0
+offset_left = 317.0
+offset_top = 76.0
+offset_right = 450.0
+offset_bottom = 163.0
 color = Color(0, 0, 0, 0)
 
 [node name="Message" type="Label" parent="ComputerScreen"]
@@ -85,7 +87,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_1iuoo")
+theme_override_fonts/font = ExtResource("3_5ca1b")
 theme_override_font_sizes/font_size = 18
 text = "Você foi
 demitid@"
