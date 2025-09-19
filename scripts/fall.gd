@@ -1,25 +1,25 @@
 extends State
 
-@export var fall_state: State
+@export var idle_state: State
+@export var move_state: State
 
-@export var jump_force: float = Constants.JUMP_FORCE
 @export var gravity: float = Constants.GRAVITY
-
 var z_velocity: float = 0.0
 
 func enter() -> void:
 	super()
-	parent.velocity.y = jump_force
-
 
 func process_physics(delta: float) -> State:
 	var dir = Constants.get_move_vector()
-	parent.velocity.y += parent.gravity * delta
+	parent.velocity = dir * Constants.CHARACTER_SPEED
 	parent.move_and_slide()
 
 	z_velocity += gravity * delta
 	parent.position.y += z_velocity * delta
 
-	if parent.velocity.y > 0:
-		return fall_state
+	if parent.is_on_floor():
+		if dir == Vector2.ZERO:
+			return idle_state
+		else:
+			return move_state
 	return null
