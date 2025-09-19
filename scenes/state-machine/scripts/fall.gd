@@ -1,7 +1,8 @@
 extends State
 
-@export var idle_state_name: String = "Idle"
-@export var move_state_name: String = "Move"
+@export var title: String = "fall"
+@export var idle_state: String = "idle"
+@export var move_state: String = "move"
 @export var gravity: float = Constants.GRAVITY
 @export var air_control_speed: float = Constants.CHARACTER_SPEED * 0.6
 
@@ -20,9 +21,7 @@ func set_initial_fall(start_z: float, start_zv: float) -> void:
 func enter() -> void:
 	z = initial_z
 	z_velocity = initial_z_velocity
-	if parent and (parent.has_node("AnimatedSprite2D") or ("anim" in parent)):
-		#parent.anim.play("fall")
-		parent.anim.position.y = -z
+
 
 func process_input(_event: InputEvent):
 	return null
@@ -39,15 +38,12 @@ func process_physics(delta: float):
 	if parent:
 		parent.anim.position.y = -z
 
-	# landing detection: z <= 0 means ground contact
 	if z <= 0.0:
 		z = 0.0
 		z_velocity = 0.0
-		if parent:
-			parent.anim.position.y = 0
-		# choose next ground state based on input
+
 		if dir != Vector2.ZERO:
-			return move_state_name
+			return move_state
 		else:
-			return idle_state_name
+			return idle_state
 	return null

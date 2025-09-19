@@ -1,5 +1,7 @@
 extends State
 
+@export var title: String = "move"
+
 @export var idle_state_name: String = "Idle"
 @export var jump_state_name: String = "Jump"
 @export var fall_state_name: String = "Fall"
@@ -22,6 +24,7 @@ func process_physics(_delta: float):
 		return idle_state_name
 
 	parent.velocity = dir * move_speed
-	parent.move_and_slide()
+	if parent.has_method("move_and_slide"):
+		parent.move_and_slide()
 	# top-down: no floor checks here
 	return null

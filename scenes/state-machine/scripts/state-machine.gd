@@ -1,28 +1,26 @@
 class_name StateMachine
 extends Node
 
-@export var starting_state_name: String = "Idle"
-
 var current_state: State = null
 var states: Dictionary = {}
 var parent_node: Node = null
 
-func init(parent: Node) -> void:
+#Initial state (loaded_states) must be on index 0
+func init(parent: Node, loaded_states: Array) -> void:
 	parent_node = parent
-	# make the machine reachable from parent (states will use parent.state_machine.get_state(...))
 	parent.state_machine = self
 
 	# collect child State nodes keyed by node name (lowercase)
 	for child in get_children():
-		if child is State:
+		if child is State and loaded_states.has(child.title):
 			child.parent = parent
-			states[child.name.to_lower()] = child
+			states[child.title.to_lower()] = child
 
-	var start_key = starting_state_name.to_lower()
+	var start_key = loaded_states[0]
 	if states.has(start_key):
 		change_state(states[start_key])
 	else:
-		push_warning("StateMachine: starting state '%s' not found among children." % starting_state_name)
+		push_warning("StateMachine: starting state '%s' not found among children." % loaded_states[0])
 
 # Accept either a State node or a String name
 func change_state(new_state) -> void:

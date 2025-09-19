@@ -1,5 +1,7 @@
 extends State
 
+@export var title: String = "jump"
+
 @export var fall_state_name: String = "Fall"
 @export var jump_force: float = Constants.JUMP_FORCE   # positive upward
 @export var gravity: float = Constants.GRAVITY
@@ -11,15 +13,11 @@ var z_velocity: float = 0.0
 func enter() -> void:
 	z = 0.0
 	z_velocity = jump_force
-	if parent and (parent.has_node("AnimatedSprite2D") or ("anim" in parent)):
-		#parent.anim.play("jump")
-		parent.anim.position.y = 0
 
 func process_input(_event: InputEvent):
 	return null
 
 func process_physics(delta: float):
-	# horizontal air control
 	var dir: Vector2 = Constants.get_move_vector()
 	parent.velocity = dir * air_control_speed
 	parent.move_and_slide()
