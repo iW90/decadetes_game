@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
+@onready var available_states: Array = ["idle", "move", "jump", "fall"]
 
 func _ready() -> void:
-	state_machine.init(self)
+	state_machine.init(self, available_states)
 
 # trying to avoid _unhandled_input
 func _input(event: InputEvent) -> void:
