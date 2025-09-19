@@ -2,7 +2,8 @@ extends State
 
 @export var title: String = "jump"
 
-@export var fall_state_name: String = "Fall"
+@export var fall_state: String = "fall"
+
 @export var jump_force: float = Constants.JUMP_FORCE   # positive upward
 @export var gravity: float = Constants.GRAVITY
 @export var air_control_speed: float = Constants.CHARACTER_SPEED * 0.6
@@ -33,12 +34,12 @@ func process_physics(delta: float):
 	# transition to fall when upward motion ends
 	if z_velocity <= 0.0:
 		# give Fall state the initial values so it continues seamlessly
-		var fall_node = parent.state_machine.get_state(fall_state_name) if parent.state_machine else null
+		var fall_node = parent.state_machine.get_state(fall_state) if parent.state_machine else null
 		if fall_node:
 			if fall_node.has_method("set_initial_fall"):
 				fall_node.set_initial_fall(z, z_velocity)
 			else:
 				fall_node.initial_z = z
 				fall_node.initial_z_velocity = z_velocity
-		return fall_state_name
+		return fall_state
 	return null
