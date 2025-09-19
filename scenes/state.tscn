@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvvx3y7k77ap6"]
+
+[ext_resource type="Script" uid="uid://j5f5a3iieeor" path="res://scenes/state-machine.gd" id="1_ihbxb"]
+[ext_resource type="Script" uid="uid://l2p21v4g5hri" path="res://scripts/idle.gd" id="2_y761p"]
+[ext_resource type="Script" uid="uid://d2j1cpbc6fjf8" path="res://scripts/move.gd" id="3_42mmd"]
+[ext_resource type="Script" uid="uid://q4ekpj2mxbj1" path="res://scripts/jump.gd" id="4_iviqo"]
+
+[node name="State" type="Node"]
+script = ExtResource("1_ihbxb")
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("2_y761p")
+
+[node name="Move" type="Node" parent="."]
+script = ExtResource("3_42mmd")
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("4_iviqo")
