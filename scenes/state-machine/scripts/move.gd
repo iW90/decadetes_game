@@ -14,13 +14,20 @@ func process_input(_event: InputEvent) -> State:
 		return jump_state
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	var dir = Constants.get_move_vector()
+	if dir == Vector2.ZERO:
+		# stop and go back to idle (keeps code simple & explicit)
+		parent.velocity = Vector2.ZERO
+		return idle_state
+	
 	parent.velocity = dir * speed
 	parent.move_and_slide()
 
 	if dir == Vector2.ZERO:
 		return idle_state
-	if not parent.is_on_floor():
+
+	if parent.has_method("is_on_floor") and not parent.is_on_floor():
 		return fall_state
+
 	return null

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dsb1y7o4ssp5p" path="res://assets/characters/goblin-female/Front - Idle blinking.png" id="1_cjt17"]
 [ext_resource type="Script" uid="uid://dsak2yoniphae" path="res://scenes/characters/goblin_female.gd" id="1_wa8bv"]
 [ext_resource type="Shader" uid="uid://dxuc5gjgaxqck" path="res://scenes/characters/char-shadow.gdshader" id="3_qrrn1"]
-[ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state.tscn" id="4_0emke"]
+[ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="4_0emke"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0emke"]
 shader = ExtResource("3_qrrn1")
@@ -149,12 +149,14 @@ offset_bottom = 185.0
 mouse_filter = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(530, 208)
 sprite_frames = SubResource("SpriteFrames_415rc")
 animation = &"idle-front"
 autoplay = "idle-front"
 frame_progress = 0.124244
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_cjt17")
 
 [node name="State" parent="." instance=ExtResource("4_0emke")]
