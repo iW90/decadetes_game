@@ -14,15 +14,22 @@ func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
 		return jump_state
 	return null
-
+	
 func process_physics(_delta: float):
 	var dir = Constants.get_move_vector()
+
 	if dir == Vector2.ZERO:
 		parent.velocity = Vector2.ZERO
-		return idle_state
+		
+		if not (Input.is_action_pressed("ui_left") or \
+				Input.is_action_pressed("ui_right") or \
+				Input.is_action_pressed("ui_up") or \
+				Input.is_action_pressed("ui_down")):
+			return idle_state
+		
+		parent.move_and_slide()
+		return null
 
 	parent.velocity = dir * move_speed
-	if parent.has_method("move_and_slide"):
-		parent.move_and_slide()
-	# top-down: no floor checks here
+	parent.move_and_slide()
 	return null
