@@ -149,7 +149,6 @@ offset_bottom = 185.0
 mouse_filter = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(530, 208)
 sprite_frames = SubResource("SpriteFrames_415rc")
 animation = &"idle-front"
 autoplay = "idle-front"

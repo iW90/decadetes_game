@@ -1,33 +1,27 @@
 extends State
 
-@export var idle_state: State
-@export var jump_state: State
-@export var fall_state: State
-
-@export var speed: float = Constants.CHARACTER_SPEED
+@export var idle_state_name: String = "Idle"
+@export var jump_state_name: String = "Jump"
+@export var fall_state_name: String = "Fall"
+@export var move_speed: float = Constants.CHARACTER_SPEED
 
 func enter() -> void:
-	super()
+	if parent:
+		if parent.has_node("AnimatedSprite2D") or ("anim" in parent):
+			pass#parent.anim.play("walk")
 
-func process_input(_event: InputEvent) -> State:
-	if Input.is_action_just_pressed(Constants.KEY_JUMP) and parent.is_on_floor():
-		return jump_state
+func process_input(_event: InputEvent):
+	if Input.is_action_just_pressed(Constants.KEY_JUMP):
+		return jump_state_name
 	return null
 
-func process_physics(_delta: float) -> State:
+func process_physics(_delta: float):
 	var dir = Constants.get_move_vector()
 	if dir == Vector2.ZERO:
-		# stop and go back to idle (keeps code simple & explicit)
 		parent.velocity = Vector2.ZERO
-		return idle_state
-	
-	parent.velocity = dir * speed
+		return idle_state_name
+
+	parent.velocity = dir * move_speed
 	parent.move_and_slide()
-
-	if dir == Vector2.ZERO:
-		return idle_state
-
-	if parent.has_method("is_on_floor") and not parent.is_on_floor():
-		return fall_state
-
+	# top-down: no floor checks here
 	return null

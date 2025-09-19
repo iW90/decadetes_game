@@ -4,6 +4,7 @@ extends Node
 const GRAVITY: float = 400.0
 const JUMP_FORCE: float = 200.0
 const CHARACTER_SPEED: float = 100.0
+
 const KEY_JUMP: String = "ui_select"
 const MOVE_ACTIONS: Array = ["ui_right", "ui_left", "ui_up", "ui_down"]
 
@@ -14,7 +15,9 @@ static func move_action_just_pressed() -> bool:
 	return false
 
 static func get_move_vector() -> Vector2:
-	return Vector2(
-		Input.get_action_strength(MOVE_ACTIONS[0]) - Input.get_action_strength(MOVE_ACTIONS[1]),
-		Input.get_action_strength(MOVE_ACTIONS[3]) - Input.get_action_strength(MOVE_ACTIONS[2]),
-	).normalized()
+	var right = Input.get_action_strength(MOVE_ACTIONS[0])
+	var left  = Input.get_action_strength(MOVE_ACTIONS[1])
+	var up    = Input.get_action_strength(MOVE_ACTIONS[2])
+	var down  = Input.get_action_strength(MOVE_ACTIONS[3])
+	var v = Vector2(right - left, down - up)
+	return v.normalized() if v.length() > 0 else Vector2.ZERO

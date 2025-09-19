@@ -1,24 +1,13 @@
 class_name State
 extends Node
 
-@export var animation_name: String
-@export var move_speed: float = 400
+# parent will be the (CharacterBody2D), injected by StateMachine.init()
+var parent: Node = null
 
-#var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-var parent: Node
-
-func enter() -> void:
-	parent.animations.play(animation_name)
-
-func exit() -> void:
-	pass
-
-func process_input(_event: InputEvent) -> State:
-	return null
-
-func process_frame(_delta: float) -> State:
-	return null
-
-func process_physics(_delta: float) -> State:
-	return null
+# lifecycle hooks
+func enter() -> void: pass
+func exit() -> void: pass
+# these may return either: null, a State node, or a String state-name (case-insensitive)
+func process_input(_event: InputEvent): return null
+func process_frame(_delta: float): return null
+func process_physics(_delta: float): return null
