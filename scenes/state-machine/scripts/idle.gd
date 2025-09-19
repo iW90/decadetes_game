@@ -6,6 +6,7 @@ extends State
 
 
 func enter() -> void:
+	super()
 	if parent:
 		parent.velocity = Vector2.ZERO
 
