@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b86jjrfsnkb3s"]
+[gd_scene load_steps=6 format=3 uid="uid://b86jjrfsnkb3s"]
 
 [ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
@@ -20,7 +20,7 @@ autostart = true
 [node name="Map" parent="." instance=ExtResource("7_yyfjg")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_l3cfh")
+stream = ExtResource("5_6q06x")
 autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spaw_timer_timeout"]
