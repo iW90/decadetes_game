@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/enemy.tscn" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dh7atssycf7kc" path="res://scenes/characters/constructions/tower.tscn" id="4_l3cfh"]
 [ext_resource type="AudioStream" uid="uid://csiy2xs84asls" path="res://assets/songs/battle_wazeel.ogg" id="4_l3cfh"]
 
 [node name="Main" type="Node2D"]
@@ -11,7 +12,10 @@ enemy_scene = ExtResource("2_k2fmo")
 spawn_margin = 0
 
 [node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
-position = Vector2(588, 295)
+position = Vector2(377, 342)
+
+[node name="Tower" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(565, 230)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 1.5

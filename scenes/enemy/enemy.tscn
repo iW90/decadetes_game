@@ -457,6 +457,7 @@ animations = [{
 size = Vector2(19.6, 42.8)
 
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 7
 scale = Vector2(2.5, 2.5)
 collision_layer = 2
 script = ExtResource("1_glmxd")
@@ -477,7 +478,6 @@ animation = &"auto-move-up"
 autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5yd2i")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
