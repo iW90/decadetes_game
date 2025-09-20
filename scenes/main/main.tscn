@@ -26,5 +26,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Map" parent="." instance=ExtResource("7_yyfjg")]
+position = Vector2(-54, 8)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spaw_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvvx3y7k77ap6"]
+[gd_scene load_steps=9 format=3 uid="uid://bvvx3y7k77ap6"]
 
 [ext_resource type="Script" uid="uid://j5f5a3iieeor" path="res://scenes/state-machine/scripts/state-machine.gd" id="1_ihbxb"]
 [ext_resource type="Script" uid="uid://l2p21v4g5hri" path="res://scenes/state-machine/scripts/idle.gd" id="2_y761p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bsrsp1nai4fxs" path="res://scenes/state-machine/scripts/fall.gd" id="5_fe54u"]
 [ext_resource type="Script" uid="uid://sysrjk7iwen8" path="res://scenes/state-machine/scripts/attack.gd" id="6_0e8cc"]
 [ext_resource type="Script" uid="uid://dwr0jfwafx8go" path="res://scenes/state-machine/scripts/auto-move.gd" id="6_lxmgx"]
+[ext_resource type="Script" uid="uid://bwlxpkist2wq8" path="res://scenes/state-machine/scripts/await.gd" id="8_143yg"]
 
 [node name="State" type="Node"]
 script = ExtResource("1_ihbxb")
@@ -28,3 +29,6 @@ script = ExtResource("6_0e8cc")
 
 [node name="Auto-Move" type="Node" parent="."]
 script = ExtResource("6_lxmgx")
+
+[node name="Await" type="Node" parent="."]
+script = ExtResource("8_143yg")

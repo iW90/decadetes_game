@@ -16,9 +16,10 @@ func process_physics(_delta: float): return null
 
 func update_animation() -> void:
 	var animation_title: String = ""
+
 	if "anim" in parent:
 		animation_title += name.to_lower()
 		if "face" in parent:
 			animation_title = "%s-%s" %[animation_title, parent.face]
-			if parent.anim.sprite_frames.has_animation(animation_title):
-				parent.anim.play(animation_title)
+		if parent.anim.sprite_frames.has_animation(animation_title):
+			parent.anim.play(animation_title)
