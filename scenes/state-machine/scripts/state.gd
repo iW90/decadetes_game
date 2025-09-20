@@ -6,8 +6,15 @@ var parent: Node = null
 
 # lifecycle hooks
 func enter() -> void:
-	if parent.anim: pass
-		#parent.anim.play(name.to_lower())
+	var last_dir = parent.last_direction
+	var state = name.to_lower()
+
+	if parent.anim:
+		if state == "auto-move":
+			state = "move"
+		var animation = state + "-" + last_dir
+		parent.anim.play(animation)
+		print(animation)
 
 func exit() -> void: pass
 # these may return either: null, a State node, or a String state-name (case-insensitive)

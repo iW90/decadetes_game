@@ -9,7 +9,6 @@ func enter() -> void:
 	super()
 	if parent:
 		parent.velocity = Vector2.ZERO
-		change_animation(parent.last_direction)
 
 func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
@@ -25,4 +24,3 @@ func process_physics(_delta: float):
 func change_animation(dir:String) -> void:
 	if not dir or not parent.anim: return
 	parent.anim.play("idle-"+dir)
-	

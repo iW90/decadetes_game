@@ -15,7 +15,7 @@ func init(parent: Node, loaded_states: Array) -> void:
 		if child is State and loaded_states.has(child.title):
 			child.parent = parent
 			states[child.title.to_lower()] = child
-	print(states)
+
 	var start_key = loaded_states[0]
 	if states.has(start_key):
 		change_state(states[start_key])
@@ -49,7 +49,6 @@ func change_state(new_state) -> void:
 	current_state.enter()
 
 func change_state_by_name(state_name: String) -> void:
-	print(state_name)
 	change_state(state_name)
 
 func get_state(state_name: String) -> State:

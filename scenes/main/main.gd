@@ -1,62 +1,34 @@
 extends Node
 
+@onready var goblin_female: CharacterBody2D = $GoblinFemale
 @onready var mob_timer: Timer = $MobTimer
 
-@export var mob_scene: PackedScene
-@export var human_scene: PackedScene
-var score
+@export var enemy_scene: PackedScene
+@export var spawn_margin := 200
+
 
 func _ready() -> void:
-	mob_timer.wait_time = randf_range(0.5, 1)
-	mob_timer.start()
+	pass
 
-func _on_mob_timer_timeout():
-	# Chance de spawnar human vs mob normal (50/50)
-	var spawn_human = randf() > 0.5
-
-	if spawn_human and human_scene:
-		spawn_human_mob()
-	elif mob_scene:
-		spawn_regular_mob()
-
-func spawn_human_mob():
+func spawn_enemy():
 	# Criar nova instância do human
-	var human = human_scene.instantiate()
+	var enemy = enemy_scene.instantiate()
+	add_child(enemy)
+	enemy.position = calculate_spawn_pos()
+	enemy.move_to_position(goblin_female.global_position)
 
-	# Escolher localização aleatória no Path2D
-	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.progress_ratio = randf()
 
-	# Definir posição do human
-	human.position = mob_spawn_location.position
+func calculate_spawn_pos() -> Vector2:
+	var screen_size = get_viewport().get_visible_rect().size
+	var player_pos = goblin_female.global_position
 
-	# Adicionar o human à cena
-	add_child(human)
+	var spawn_distance = screen_size.length() / 2 + spawn_margin
+	var angle = randf_range(0, TAU)
 
-	# O human automaticamente se moverá para o centro da tela
-	print("Human spawnado em: ", human.position)
+	var spawn_pos = player_pos + Vector2.RIGHT.rotated(angle) * spawn_distance
 
-func spawn_regular_mob():
-	# Create a new instance of the Mob scene.
-	var mob = mob_scene.instantiate()
+	return spawn_pos
 
-	# Choose a random location on Path2D.
-	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.progress_ratio = randf()
 
-	# Set the mob's position to the random location.
-	mob.position = mob_spawn_location.position
-
-	# Set the mob's direction perpendicular to the path direction.
-	var direction = mob_spawn_location.rotation + PI / 2
-
-	# Add some randomness to the direction.
-	direction += randf_range(-PI / 4, PI / 4)
-	mob.rotation = direction
-
-	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
-
-	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+func _on_spaw_timer_timeout() -> void:
+	spawn_enemy()

@@ -11,7 +11,6 @@ var is_auto_moving: bool = false
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
-	move_to_screen_center()
 
 func _input(event: InputEvent) -> void:
 	if not is_auto_moving:

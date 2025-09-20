@@ -12,10 +12,8 @@ point_count = 5
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_k2fmo")
-mob_scene = ExtResource("2_k2fmo")
-
-[node name="Human" parent="." instance=ExtResource("2_k2fmo")]
-position = Vector2(-81, 0)
+enemy_scene = ExtResource("2_k2fmo")
+spawn_margin = 0
 
 [node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
 position = Vector2(588, 295)
@@ -26,4 +24,8 @@ curve = SubResource("Curve2D_l3cfh")
 [node name="MobSpawLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(16, 20)
 
-[node name="MobTimer" type="Timer" parent="."]
+[node name="SpawTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="SpawTimer" to="." method="_on_spaw_timer_timeout"]
