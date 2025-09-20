@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
+	Global.player = self
 
 # trying to avoid _unhandled_input
 func _input(event: InputEvent) -> void:

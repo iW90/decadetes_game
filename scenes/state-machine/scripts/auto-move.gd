@@ -3,29 +3,26 @@ extends State
 @export var title: String = "auto-move"
 @export var idle_state: String = "idle"
 @export var move_speed: float = Constants.CHARACTER_SPEED
-@export var arrival_threshold: float = 5.0
 
-var target_position: Vector2
+var player = null
+var direction: Vector2 = Vector2.ZERO
+
+#TODO: não aceitar movimento se não for o automove
+
+func _ready() -> void:
+	player = Global.player
 
 func enter() -> void:
 	super()
-	target_position = parent.auto_move_target
 
 func process_input(_event: InputEvent):
 	return null
 
 func process_physics(_delta: float):
-	if not parent:
-		return idle_state
+	if not parent or not player: return idle_state
 
-	var distance_to_target = parent.global_position.distance_to(target_position)
+	direction = parent.global_position.direction_to(player.global_position)
 
-	if distance_to_target <= arrival_threshold:
-		parent.velocity = Vector2.ZERO
-		parent.stop_auto_move()
-		return idle_state
-
-	var direction = (target_position - parent.global_position).normalized()
 	change_direction(direction)
 
 	parent.velocity = direction * move_speed
