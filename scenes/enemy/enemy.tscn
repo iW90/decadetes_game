@@ -654,6 +654,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.4)
+scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
