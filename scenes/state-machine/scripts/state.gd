@@ -22,3 +22,4 @@ func update_animation() -> void:
 			animation_title = "%s-%s" %[animation_title, parent.face]
 			if parent.anim.sprite_frames.has_animation(animation_title):
 				parent.anim.play(animation_title)
+				if animation_title.split("-")[0] == "attack": print(animation_title)
