@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $Bounce
 @onready var state_machine: Node = $State
 @onready var available_states: Array = ["await", "attack"]
 
