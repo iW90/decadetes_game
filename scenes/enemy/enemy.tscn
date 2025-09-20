@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
 [ext_resource type="Shader" uid="uid://dxuc5gjgaxqck" path="res://scenes/characters/char-shadow.gdshader" id="2_y74mo"]
+[ext_resource type="Texture2D" uid="uid://qfcphmwgg5rh" path="res://assets/characters/enemy/Attack/Down.png" id="3_5woo5"]
 [ext_resource type="Texture2D" uid="uid://d3wxove805tdh" path="res://assets/characters/enemy/Idle/Down.png" id="3_xoilw"]
 [ext_resource type="Texture2D" uid="uid://b4b0cd8dbgtjq" path="res://assets/characters/enemy/Idle/Left.png" id="4_hwphq"]
+[ext_resource type="Texture2D" uid="uid://bc4uayhseguxu" path="res://assets/characters/enemy/Attack/Left.png" id="4_pb0yv"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="4_y7hbn"]
 [ext_resource type="Texture2D" uid="uid://tvei2o10k3lo" path="res://assets/characters/enemy/Idle/Right.png" id="5_kb104"]
+[ext_resource type="Texture2D" uid="uid://b2d8m7jcwffqu" path="res://assets/characters/enemy/Attack/Right.png" id="5_prup0"]
+[ext_resource type="Texture2D" uid="uid://cjha087btdkxa" path="res://assets/characters/enemy/Attack/Up.png" id="6_dxjon"]
 [ext_resource type="Texture2D" uid="uid://cxglj3qh6uoly" path="res://assets/characters/enemy/Idle/Up.png" id="6_x362u"]
 [ext_resource type="Texture2D" uid="uid://dyxihbv0r07rm" path="res://assets/characters/enemy/Run/Down.png" id="7_hwphq"]
 [ext_resource type="Texture2D" uid="uid://3dyxuyu4te0s" path="res://assets/characters/enemy/Run/Left.png" id="8_5yd2i"]
@@ -320,6 +324,86 @@ region = Rect2(320, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f5q6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ed2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk82e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsmli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cicna")
+}],
+"loop": true,
+"name": &"attack-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sff7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtpa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xn8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78r2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emhag")
+}],
+"loop": true,
+"name": &"attack-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh35g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnnf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgr8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkfgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkkhu")
+}],
+"loop": true,
+"name": &"attack-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjpr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7nbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlx23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3nfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3hdu")
+}],
+"loop": true,
+"name": &"attack-up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kb104")
 }, {
 "duration": 1.0,
@@ -541,19 +625,18 @@ radius = 10.8
 height = 57.6
 
 [node name="Enemy" type="CharacterBody2D"]
-z_index = 3
+z_index = 7
 scale = Vector2(2.5, 2.5)
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_glmxd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_a4iq3")
 animation = &"attack-up"
 autoplay = "idle-down"
 
 [node name="Area2" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
 position = Vector2(0.2, 5.8)
@@ -571,7 +654,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.4)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
