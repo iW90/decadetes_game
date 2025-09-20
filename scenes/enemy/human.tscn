@@ -474,7 +474,7 @@ mouse_filter = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_a4iq3")
-animation = &"move-left"
+animation = &"idle-left"
 autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

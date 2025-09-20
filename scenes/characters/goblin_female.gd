@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var state_machine: Node = $State
 @onready var available_states: Array = ["idle", "move", "jump", "fall"]
 
+@export var last_direction: String = "down"
+
 func _ready() -> void:
 	state_machine.init(self, available_states)
 
