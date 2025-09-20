@@ -8,9 +8,11 @@ extends CharacterBody2D
 @export var auto_move_target: Vector2
 
 var health = Constants.ENEMY_HEALTH
+var player = null
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
+	player = Global.player
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
@@ -28,5 +30,9 @@ func move_to_position(target: Vector2) -> void:
 	state_machine.change_state_by_name("auto-move")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body.is_in_group("player")):
+	if body.is_in_group("player"):
 		state_machine.change_state_by_name("attack")
+
+func _on_area_2_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		state_machine.change_state_by_name("auto-move")
