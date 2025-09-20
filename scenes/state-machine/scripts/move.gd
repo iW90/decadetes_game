@@ -8,6 +8,8 @@ extends State
 @export var move_speed: float = Constants.CHARACTER_SPEED
 
 func enter() -> void:
+	if !Input.is_action_pressed("backwards"):
+		change_face(Constants.get_move_vector())
 	super()
 
 func process_input(_event: InputEvent):
@@ -17,39 +19,26 @@ func process_input(_event: InputEvent):
 
 func process_physics(_delta: float):
 	var dir = Constants.get_move_vector()
-
+	change_face(dir)
 	if dir == Vector2.ZERO:
 		parent.velocity = Vector2.ZERO
 
-		if not (Input.is_action_pressed("ui_left") or \
-				Input.is_action_pressed("ui_right") or \
-				Input.is_action_pressed("ui_up") or \
-				Input.is_action_pressed("ui_down")):
+		if not Constants.get_move_vector():
 			return idle_state
-
 		parent.move_and_slide()
 		return null
 
-	change_animation()
 	parent.velocity = dir * move_speed
 	parent.move_and_slide()
 	return null
 
-func change_animation() -> void:
-	var dir: String = ""
-
-	if parent.anim:
-		if parent.velocity.x > 0:
-			dir = "right"
-		elif parent.velocity.x < 0:
-			dir = "left"
-		elif parent.velocity.y > 0:
-			dir = "down"
-		elif parent.velocity.y < 0:
-			dir = "up"
-		if dir == "":
-			return
-		dir = "move-"+dir
-		parent.anim
-		parent.anim.play_backwards(dir)
-		parent.last_direction = dir
+func change_face(dir: Vector2) -> void:
+	if "face" in parent:
+		if dir.x > 0:
+			parent.face = "right"
+		elif dir.x < 0:
+			parent.face = "left"
+		elif dir.y > 0:
+			parent.face = "down"
+		elif dir.y < 0:
+			parent.face = "up"

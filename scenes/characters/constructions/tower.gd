@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "damage"]
+@onready var available_states: Array = ["idle", "attack"]
 
 @export var last_direction: String = "down"
 @export var velocity: Vector2 = Vector2.ZERO
