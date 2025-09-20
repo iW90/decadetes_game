@@ -5,7 +5,9 @@ extends Node
 var parent: Node = null
 
 # lifecycle hooks
-func enter() -> void: pass
+func enter() -> void:
+	if parent.anim:
+		parent.anim.play(name.to_lower())
 
 func exit() -> void: pass
 # these may return either: null, a State node, or a String state-name (case-insensitive)
