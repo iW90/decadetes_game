@@ -1,6 +1,6 @@
 [gd_scene load_steps=71 format=3 uid="uid://dam4ath8sjgx2"]
 
-[ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/human.gd" id="1_glmxd"]
+[ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
 [ext_resource type="Shader" uid="uid://dxuc5gjgaxqck" path="res://scenes/characters/char-shadow.gdshader" id="2_y74mo"]
 [ext_resource type="Texture2D" uid="uid://d3wxove805tdh" path="res://assets/characters/AntiHero Character/Idle/Down.png" id="3_xoilw"]
 [ext_resource type="Texture2D" uid="uid://b4b0cd8dbgtjq" path="res://assets/characters/AntiHero Character/Idle/Left.png" id="4_hwphq"]
@@ -456,7 +456,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yd2i"]
 size = Vector2(50, 124)
 
-[node name="human" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
 position = Vector2(-3, -2)
 script = ExtResource("1_glmxd")
 

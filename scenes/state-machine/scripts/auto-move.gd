@@ -27,7 +27,7 @@ func process_physics(_delta: float):
 
 	var direction = (target_position - parent.global_position).normalized()
 	change_direction(direction)
-	
+
 	parent.velocity = direction * move_speed
 	parent.move_and_slide()
 
@@ -50,3 +50,5 @@ func change_direction(direction: Vector2) -> void:
 		else:
 			dir = "up"
 	parent.last_direction = dir
+
+	change_animation()

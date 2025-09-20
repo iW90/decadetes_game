@@ -50,3 +50,4 @@ func change_last_dir() -> void:
 			dir = "up"
 
 	parent.last_direction = dir
+	change_animation()

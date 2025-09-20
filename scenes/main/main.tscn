@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/human.tscn" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/enemy.tscn" id="2_k2fmo"]
 
 [sub_resource type="Curve2D" id="Curve2D_l3cfh"]
 _data = {
