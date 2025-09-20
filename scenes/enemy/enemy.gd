@@ -2,21 +2,20 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "move", "jump", "fall", "auto-move"]
+@onready var available_states: Array = ["idle", "move", "jump", "fall", "auto-move", "attack"]
 
 @export var last_direction: String = "down"
 @export var auto_move_target: Vector2
 
 var health = Constants.ENEMY_HEALTH
-
 var is_auto_moving: bool = false
+var player = null
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
+	player = Global.player
 
-func _input(event: InputEvent) -> void:
-	if not is_auto_moving:
-		state_machine.process_input(event)
+func _input(event: InputEvent) -> void: pass
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)

@@ -30,25 +30,11 @@ func process_physics(_delta: float):
 		parent.move_and_slide()
 		return null
 
-	change_last_dir()
+	change_last_dir(parent.global_position)
 	change_animation()
 
 	parent.velocity = dir * move_speed
 	parent.move_and_slide()
 	return null
-
-func change_last_dir() -> void:
-	if parent.anim: return
-
-	var dir: String = ""
-
-	if parent.velocity.x > 0:
-		dir = "right"
-	elif parent.velocity.x < 0:
-		dir = "left"
-	elif parent.velocity.y > 0:
-		dir = "down"
-	elif parent.velocity.y < 0:
-		dir = "up"
 
 	parent.last_direction = dir
