@@ -19,3 +19,15 @@ func exit() -> void: pass
 func process_input(_event: InputEvent): return null
 func process_frame(_delta: float): return null
 func process_physics(_delta: float): return null
+
+func change_animation() -> void:
+	if not parent.anim: return
+
+	var last_dir = parent.last_direction
+	var state = name.to_lower()
+	
+	if state == "auto-move":
+		state = "move"
+
+	var animation = state + "-" + last_dir
+	parent.anim.play(animation)

@@ -9,7 +9,6 @@ func enter() -> void:
 	if parent:
 		parent.velocity = Vector2.ZERO
 
-
 func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
 		return jump_state

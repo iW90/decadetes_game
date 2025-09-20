@@ -5,6 +5,10 @@ const GRAVITY: float = 400.0
 const JUMP_FORCE: float = 250.0
 const CHARACTER_SPEED: float = 200.0
 
+# Enemy specific constants
+const ENEMY_SPEED: float = 100.0
+const ENEMY_HEALTH: int = 3
+
 const KEY_JUMP: String = "ui_select"
 const MOVE_ACTIONS: Array = ["ui_right", "ui_left", "ui_up", "ui_down"]
 

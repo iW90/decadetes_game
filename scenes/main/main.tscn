@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b86jjrfsnkb3s"]
+[gd_scene load_steps=6 format=3 uid="uid://b86jjrfsnkb3s"]
+
+[ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
+[ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/enemy.tscn" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://b4guw3wc7i667" path="res://scenes/map/map.tscn" id="3_l3cfh"]
+
+[sub_resource type="Curve2D" id="Curve2D_l3cfh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 20, 0, 0, 0, 0, 1135, 20, 0, 0, 0, 0, 1135, 625, 0, 0, 0, 0, 16, 622, 0, 0, 0, 0, 16, 20)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_k2fmo")
+enemy_scene = ExtResource("2_k2fmo")
+spawn_margin = 0
+
+[node name="Map" parent="." instance=ExtResource("3_l3cfh")]
+
+[node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
+position = Vector2(588, 295)
+
+[node name="Camera2D" type="Camera2D" parent="GoblinFemale"]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_l3cfh")
+
+[node name="MobSpawLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(16, 20)
+
+[node name="SpawTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="SpawTimer" to="." method="_on_spaw_timer_timeout"]
