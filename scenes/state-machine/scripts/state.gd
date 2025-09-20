@@ -22,4 +22,3 @@ func change_animation() -> void:
 		state = "move"
 	var animation = state + "-" + last_dir
 	parent.anim.play(animation)
-	print(animation)
