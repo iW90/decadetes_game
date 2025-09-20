@@ -21,6 +21,8 @@ spawn_margin = 0
 [node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
 position = Vector2(588, 295)
 
+[node name="Camera2D" type="Camera2D" parent="GoblinFemale"]
+
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_l3cfh")
 
