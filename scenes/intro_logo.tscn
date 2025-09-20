@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cae0csv71xjgn"]
+[gd_scene load_steps=19 format=3 uid="uid://cae0csv71xjgn"]
 
 [ext_resource type="Script" uid="uid://bbspfdp7vimd4" path="res://scripts/intro_logo.gd" id="1_i13ma"]
 [ext_resource type="Texture2D" uid="uid://bdm3ipx0v3uh3" path="res://assets/intro_logo/4.png" id="1_vmxr5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xsbp1o5pw16" path="res://assets/intro_logo/gd_head-pupils.png" id="8_il3vf"]
 [ext_resource type="Texture2D" uid="uid://cic1o4bet4my8" path="res://assets/intro_logo/d.png" id="11_qxfoj"]
 [ext_resource type="Texture2D" uid="uid://dytmuu4ieooow" path="res://assets/intro_logo/e.png" id="12_0iisf"]
+[ext_resource type="AudioStream" uid="uid://caeb30ddx1lhf" path="res://assets/songs/fun_dindin.mp3" id="15_vgcnp"]
 
 [sub_resource type="Animation" id="Animation_qxfoj"]
 length = 0.001
@@ -720,5 +721,10 @@ texture = ExtResource("11_qxfoj")
 [node name="E" type="Sprite2D" parent="Team"]
 position = Vector2(0, -120)
 texture = ExtResource("12_0iisf")
+
+[node name="OpeningSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_vgcnp")
+autoplay = true
+bus = &"Music"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
