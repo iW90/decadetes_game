@@ -1642,8 +1642,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjt17"]
-radius = 73.0
-height = 250.0
+radius = 96.0
+height = 288.0
 
 [node name="GoblinFemale" type="CharacterBody2D"]
 z_index = 7
@@ -1666,7 +1666,7 @@ autoplay = "idle-down"
 frame_progress = 0.118931
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_cjt17")
 
 [node name="State" parent="." instance=ExtResource("4_0emke")]
