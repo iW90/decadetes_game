@@ -10,7 +10,6 @@ extends State
 func enter() -> void:
 	super()
 
-
 func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
 		return jump_state
@@ -48,8 +47,9 @@ func change_animation() -> void:
 			dir = "down"
 		elif parent.velocity.y < 0:
 			dir = "up"
-
-
-
-		parent.anim.play("move-"+dir)
+		if dir == "":
+			return
+		dir = "move-"+dir
+		parent.anim
+		parent.anim.play_backwards(dir)
 		parent.last_direction = dir

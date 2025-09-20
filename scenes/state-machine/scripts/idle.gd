@@ -4,7 +4,6 @@ extends State
 @export var move_state: String = "move"
 @export var jump_state: String = "jump"
 
-
 func enter() -> void:
 	super()
 	if parent:

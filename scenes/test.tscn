@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bea1t1adbm0og"]
+
+[ext_resource type="PackedScene" uid="uid://dh7atssycf7kc" path="res://scenes/characters/nexus.tscn" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="2_iyx0m"]
+
+[node name="CanvasGroup" type="Node"]
+
+[node name="GoblinFemale" parent="." instance=ExtResource("2_iyx0m")]
+position = Vector2(343, 280)
+
+[node name="Nexus" parent="." instance=ExtResource("1_bl13t")]
