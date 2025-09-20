@@ -70,7 +70,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Tower" type="StaticBody2D"]
 self_modulate = Color(0.392157, 0.278431, 0.164706, 1)
 script = ExtResource("1_5lgs5")
 
@@ -79,7 +79,7 @@ z_index = -1
 material = SubResource("CanvasItemMaterial_cwj8y")
 polygon = PackedVector2Array(-57, 56, -71, 67, -71, 70, -63, 85, -67, 96, -68, 144, -79, 156, -79, 161, -57, 182, -50, 185, -46, 185, -38, 177, -31, 184, 32, 184, 38, 177, 47, 185, 51, 185, 58, 181, 79, 160, 79, 156, 68, 144, 67, 97, 63, 84, 71, 70, 71, 67, 55, 54)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Bounce" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_aowav")
 animation = &"await"
