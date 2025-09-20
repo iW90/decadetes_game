@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e4lxcv2n3kgh"
-path="res://.godot/imported/Left.png-a0068898e1db7ec3f2f7b5be36360374.ctex"
+path="res://.godot/imported/Left.png-10b77c8d657f7384f217beb7c320c393.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/AntiHero Character/Pick Up/Left.png"
-dest_files=["res://.godot/imported/Left.png-a0068898e1db7ec3f2f7b5be36360374.ctex"]
+source_file="res://assets/characters/enemy/Pick Up/Left.png"
+dest_files=["res://.godot/imported/Left.png-10b77c8d657f7384f217beb7c320c393.ctex"]
 
 [params]
 

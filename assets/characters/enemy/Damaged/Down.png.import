@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0df4rdxc1amj"
-path="res://.godot/imported/Down.png-7a75403bee703095f3eb54abc927ba3d.ctex"
+path="res://.godot/imported/Down.png-3579aed8b90be909a4f0aefd47b7d7b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/AntiHero Character/Damaged/Down.png"
-dest_files=["res://.godot/imported/Down.png-7a75403bee703095f3eb54abc927ba3d.ctex"]
+source_file="res://assets/characters/enemy/Damaged/Down.png"
+dest_files=["res://.godot/imported/Down.png-3579aed8b90be909a4f0aefd47b7d7b2.ctex"]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
 [ext_resource type="Shader" uid="uid://dxuc5gjgaxqck" path="res://scenes/characters/char-shadow.gdshader" id="2_y74mo"]
-[ext_resource type="Texture2D" uid="uid://d3wxove805tdh" path="res://assets/characters/AntiHero Character/Idle/Down.png" id="3_xoilw"]
-[ext_resource type="Texture2D" uid="uid://b4b0cd8dbgtjq" path="res://assets/characters/AntiHero Character/Idle/Left.png" id="4_hwphq"]
+[ext_resource type="Texture2D" uid="uid://d3wxove805tdh" path="res://assets/characters/enemy/Idle/Down.png" id="3_xoilw"]
+[ext_resource type="Texture2D" uid="uid://b4b0cd8dbgtjq" path="res://assets/characters/enemy/Idle/Left.png" id="4_hwphq"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="4_y7hbn"]
-[ext_resource type="Texture2D" uid="uid://tvei2o10k3lo" path="res://assets/characters/AntiHero Character/Idle/Right.png" id="5_kb104"]
-[ext_resource type="Texture2D" uid="uid://cxglj3qh6uoly" path="res://assets/characters/AntiHero Character/Idle/Up.png" id="6_x362u"]
-[ext_resource type="Texture2D" uid="uid://dyxihbv0r07rm" path="res://assets/characters/AntiHero Character/Run/Down.png" id="7_hwphq"]
-[ext_resource type="Texture2D" uid="uid://3dyxuyu4te0s" path="res://assets/characters/AntiHero Character/Run/Left.png" id="8_5yd2i"]
-[ext_resource type="Texture2D" uid="uid://ctg010rq7msj5" path="res://assets/characters/AntiHero Character/Run/Right.png" id="9_klki1"]
-[ext_resource type="Texture2D" uid="uid://icsec8cdbcym" path="res://assets/characters/AntiHero Character/Run/Up.png" id="10_k2omr"]
+[ext_resource type="Texture2D" uid="uid://tvei2o10k3lo" path="res://assets/characters/enemy/Idle/Right.png" id="5_kb104"]
+[ext_resource type="Texture2D" uid="uid://cxglj3qh6uoly" path="res://assets/characters/enemy/Idle/Up.png" id="6_x362u"]
+[ext_resource type="Texture2D" uid="uid://dyxihbv0r07rm" path="res://assets/characters/enemy/Run/Down.png" id="7_hwphq"]
+[ext_resource type="Texture2D" uid="uid://3dyxuyu4te0s" path="res://assets/characters/enemy/Run/Left.png" id="8_5yd2i"]
+[ext_resource type="Texture2D" uid="uid://ctg010rq7msj5" path="res://assets/characters/enemy/Run/Right.png" id="9_klki1"]
+[ext_resource type="Texture2D" uid="uid://icsec8cdbcym" path="res://assets/characters/enemy/Run/Up.png" id="10_k2omr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xuynl"]
 shader = ExtResource("2_y74mo")

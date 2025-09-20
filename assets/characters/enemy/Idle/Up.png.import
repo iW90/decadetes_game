@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxglj3qh6uoly"
-path="res://.godot/imported/Up.png-1c974541139ecfa344296f64f08db9ad.ctex"
+path="res://.godot/imported/Up.png-2c41f4442dc114a18c9de259589e379a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/AntiHero Character/Idle/Up.png"
-dest_files=["res://.godot/imported/Up.png-1c974541139ecfa344296f64f08db9ad.ctex"]
+source_file="res://assets/characters/enemy/Idle/Up.png"
+dest_files=["res://.godot/imported/Up.png-2c41f4442dc114a18c9de259589e379a.ctex"]
 
 [params]
 

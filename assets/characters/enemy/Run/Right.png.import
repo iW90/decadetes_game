@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctg010rq7msj5"
-path="res://.godot/imported/Right.png-6e2ee261f3d58f0c4a409ef5a665f854.ctex"
+path="res://.godot/imported/Right.png-ef639bd8011d8bb4a0675aa23519e0d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/AntiHero Character/Run/Right.png"
-dest_files=["res://.godot/imported/Right.png-6e2ee261f3d58f0c4a409ef5a665f854.ctex"]
+source_file="res://assets/characters/enemy/Run/Right.png"
+dest_files=["res://.godot/imported/Right.png-ef639bd8011d8bb4a0675aa23519e0d5.ctex"]
 
 [params]
 
