@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh7atssycf7kc"]
+[gd_scene load_steps=6 format=3 uid="uid://dh7atssycf7kc"]
 
 [ext_resource type="Script" uid="uid://d04kqfgtbsfn3" path="res://scenes/characters/constructions/tower.gd" id="1_5lgs5"]
 [ext_resource type="Texture2D" uid="uid://bm42o7mgdmon" path="res://assets/nexus/nexus.png" id="2_04fwd"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="3_hpyft"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gynp"]
-radius = 88.5
-height = 177.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwj8y"]
+size = Vector2(191, 173)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aowav"]
 animations = [{
@@ -19,30 +18,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwj8y"]
-size = Vector2(192, 277)
-
 [node name="Tower" type="StaticBody2D"]
-z_index = 3
+z_index = 10
 script = ExtResource("1_5lgs5")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 119.5)
-shape = SubResource("CapsuleShape2D_7gynp")
+position = Vector2(0, 115.5)
+shape = SubResource("RectangleShape2D_cwj8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_aowav")
 
 [node name="State" parent="." instance=ExtResource("3_hpyft")]
-
-[node name="Area2d" type="Area2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(-1, -52.5)
-shape = SubResource("RectangleShape2D_cwj8y")
-
-[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2d" to="." method="_on_area_2d_body_exited"]

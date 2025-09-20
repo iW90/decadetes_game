@@ -32,16 +32,20 @@ func process_physics(_delta: float):
 		parent.move_and_slide()
 		return null
 	parent.velocity = dir * move_speed
+	change_face(parent.velocity)
 	parent.move_and_slide()
 	return null
 
 func change_face(dir: Vector2) -> void:
-	if "face" in parent:
+	if "face" not in parent: return
+	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
 			parent.face = "right"
-		elif dir.x < 0:
+		else:
 			parent.face = "left"
-		elif dir.y > 0:
+	else:
+		if dir.y > 0:
 			parent.face = "down"
-		elif dir.y < 0:
+		else:
 			parent.face = "up"
+	update_animation()

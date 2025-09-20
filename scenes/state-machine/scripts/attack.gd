@@ -1,7 +1,16 @@
 extends State
 
-@export var title: String = "damage"
+@export var title: String = "attack"
+
 @export var idle_state: String = "idle"
 @export var move_state: String = "move"
 @export var gravity: float = Constants.GRAVITY
-@export var air_control_speed: float = Constants.CHARACTER_SPEED * 0.6
+
+func enter() -> void:
+	super()
+
+func process_input(_event: InputEvent):
+	return null
+
+func process_physics(_delta: float):
+	return null
