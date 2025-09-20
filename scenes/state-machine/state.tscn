@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d2j1cpbc6fjf8" path="res://scenes/state-machine/scripts/move.gd" id="3_42mmd"]
 [ext_resource type="Script" uid="uid://q4ekpj2mxbj1" path="res://scenes/state-machine/scripts/jump.gd" id="4_iviqo"]
 [ext_resource type="Script" uid="uid://bsrsp1nai4fxs" path="res://scenes/state-machine/scripts/fall.gd" id="5_fe54u"]
+[ext_resource type="Script" uid="uid://sysrjk7iwen8" path="res://scenes/state-machine/scripts/attack.gd" id="6_lxmgx"]
 [ext_resource type="Script" uid="uid://dwr0jfwafx8go" path="res://scenes/state-machine/scripts/auto-move.gd" id="6_lxmgx"]
 
 [node name="State" type="Node"]
@@ -22,5 +23,6 @@ script = ExtResource("4_iviqo")
 [node name="Fall" type="Node" parent="."]
 script = ExtResource("5_fe54u")
 
+[node name="Attack" type="Node" parent="."]
 [node name="Auto-Move" type="Node" parent="."]
 script = ExtResource("6_lxmgx")

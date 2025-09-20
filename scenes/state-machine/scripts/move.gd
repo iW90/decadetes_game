@@ -8,7 +8,9 @@ extends State
 @export var move_speed: float = Constants.CHARACTER_SPEED
 
 func enter() -> void:
-	pass#parent.anim.play("walk")
+	if !Input.is_action_pressed("backwards"):
+		change_face(Constants.get_move_vector())
+	super()
 
 func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
@@ -17,7 +19,7 @@ func process_input(_event: InputEvent):
 	
 func process_physics(_delta: float):
 	var dir = Constants.get_move_vector()
-
+	change_face(dir)
 	if dir == Vector2.ZERO:
 		parent.velocity = Vector2.ZERO
 		
@@ -30,34 +32,21 @@ func process_physics(_delta: float):
 		parent.move_and_slide()
 		return null
 
-		if not (Input.is_action_pressed("ui_left") or \
-				Input.is_action_pressed("ui_right") or \
-				Input.is_action_pressed("ui_up") or \
-				Input.is_action_pressed("ui_down")):
+		if not Constants.get_move_vector():
 			return idle_state
-
 		parent.move_and_slide()
 		return null
-
-	change_last_dir()
-	change_animation()
-
 	parent.velocity = dir * move_speed
 	parent.move_and_slide()
 	return null
 
-func change_last_dir() -> void:
-	if parent.anim: return
-
-	var dir: String = ""
-
-	if parent.velocity.x > 0:
-		dir = "right"
-	elif parent.velocity.x < 0:
-		dir = "left"
-	elif parent.velocity.y > 0:
-		dir = "down"
-	elif parent.velocity.y < 0:
-		dir = "up"
-
-	parent.last_direction = dir
+func change_face(dir: Vector2) -> void:
+	if "face" in parent:
+		if dir.x > 0:
+			parent.face = "right"
+		elif dir.x < 0:
+			parent.face = "left"
+		elif dir.y > 0:
+			parent.face = "down"
+		elif dir.y < 0:
+			parent.face = "up"

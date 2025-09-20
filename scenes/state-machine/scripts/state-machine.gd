@@ -67,6 +67,7 @@ func process_frame(delta: float) -> void:
 func process_physics(delta: float) -> void:
 	if current_state == null: return
 	var next = current_state.process_physics(delta)
+	
 	_check_for_transition(next)
 
 func _check_for_transition(next) -> void:

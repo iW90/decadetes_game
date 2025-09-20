@@ -14,6 +14,7 @@ var z_velocity: float = 0.0
 func enter() -> void:
 	z = 0.0
 	z_velocity = jump_force
+	super()
 
 func process_input(_event: InputEvent):
 	return null
