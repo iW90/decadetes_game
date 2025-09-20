@@ -14,4 +14,3 @@ position = Vector2(343, 280)
 [node name="GoblinThemeSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_iyx0m")
 autoplay = true
-bus = &"Music"
