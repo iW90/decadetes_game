@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "move", "jump", "fall", "auto-move"]
+@onready var available_states: Array = ["idle", "jump", "fall", "auto-move"]
 
-@export var last_direction: String = "down"
+@export var face: String = "down"
 @export var auto_move_target: Vector2
 
 var health = Constants.ENEMY_HEALTH

@@ -16,21 +16,12 @@ func process_input(_event: InputEvent):
 	if Input.is_action_just_pressed(Constants.KEY_JUMP):
 		return jump_state
 	return null
-	
+
 func process_physics(_delta: float):
 	var dir = Constants.get_move_vector()
 	change_face(dir)
 	if dir == Vector2.ZERO:
 		parent.velocity = Vector2.ZERO
-		
-		if not (Input.is_action_pressed("ui_left") or \
-				Input.is_action_pressed("ui_right") or \
-				Input.is_action_pressed("ui_up") or \
-				Input.is_action_pressed("ui_down")):
-			return idle_state
-		
-		parent.move_and_slide()
-		return null
 
 		if not Constants.get_move_vector():
 			return idle_state

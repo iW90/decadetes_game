@@ -14,6 +14,7 @@ var initial_z_velocity: float = 0.0
 var z: float = 0.0
 var z_velocity: float = 0.0
 
+
 func set_initial_fall(start_z: float, start_zv: float) -> void:
 	initial_z = start_z
 	initial_z_velocity = start_zv

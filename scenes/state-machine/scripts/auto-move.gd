@@ -6,7 +6,7 @@ extends State
 @export var move_speed: float = Constants.ENEMY_SPEED
 
 var player = null
-var direction: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	player = Global.player
@@ -19,19 +19,16 @@ func process_input(_event: InputEvent):
 
 func process_physics(_delta: float):
 	if not parent or not player: return idle_state
+	var direction: Vector2 = parent.global_position.direction_to(player.global_position)
 
-	direction = parent.global_position.direction_to(player.global_position)
-
-	change_direction(direction)
-	change_animation()
-
+	change_face(direction)
 	parent.velocity = direction * move_speed
 	parent.move_and_slide()
 
 	return null
 
-func change_direction(direction: Vector2) -> void:
-	if not parent.anim:
+func change_face(direction: Vector2) -> void:
+	if not "face" in parent:
 		return
 
 	var dir: String = ""
@@ -46,4 +43,5 @@ func change_direction(direction: Vector2) -> void:
 			dir = "down"
 		else:
 			dir = "up"
-	parent.last_direction = dir
+	parent.face = dir
+	update_animation()
