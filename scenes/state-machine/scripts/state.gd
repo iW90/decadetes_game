@@ -18,8 +18,8 @@ func update_animation() -> void:
 	var animation_title: String = ""
 	if "anim" in parent:
 		animation_title += name.to_lower()
+		if animation_title.contains("attack"): print(parent.face, "-", animation_title)		
 		if "face" in parent:
 			animation_title = "%s-%s" %[animation_title, parent.face]
 			if parent.anim.sprite_frames.has_animation(animation_title):
 				parent.anim.play(animation_title)
-				if animation_title.split("-")[0] == "attack": print(animation_title)

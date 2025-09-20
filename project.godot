@@ -27,8 +27,7 @@ window/size/resizable=false
 
 [global_group]
 
-enemies="grupo para os inimigos"
-player="grupo para o player"
+player="grupo do player"
 
 [input]
 
