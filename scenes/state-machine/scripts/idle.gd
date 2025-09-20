@@ -23,6 +23,6 @@ func process_physics(_delta: float):
 	return null
 
 func change_animation(dir:String) -> void:
-	if not dir: return
+	if not dir or not parent.anim: return
 	parent.anim.play("idle-"+dir)
 	

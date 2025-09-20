@@ -48,8 +48,6 @@ func change_animation() -> void:
 			dir = "down"
 		elif parent.velocity.y < 0:
 			dir = "up"
-
-
-
-		parent.anim.play("move-"+dir)
-		parent.last_direction = dir
+		if dir != "":
+			parent.anim.play("move-"+dir)
+			parent.last_direction = dir
