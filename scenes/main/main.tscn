@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b86jjrfsnkb3s"]
+
+[ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
+[ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/human.tscn" id="2_k2fmo"]
+
+[sub_resource type="Curve2D" id="Curve2D_l3cfh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 20, 0, 0, 0, 0, 1135, 20, 0, 0, 0, 0, 1135, 625, 0, 0, 0, 0, 16, 622, 0, 0, 0, 0, 16, 20)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_k2fmo")
+mob_scene = ExtResource("2_k2fmo")
+
+[node name="Human" parent="." instance=ExtResource("2_k2fmo")]
+position = Vector2(-81, 0)
+
+[node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
+position = Vector2(588, 295)
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_l3cfh")
+
+[node name="MobSpawLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(16, 20)
+
+[node name="MobTimer" type="Timer" parent="."]

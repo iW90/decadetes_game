@@ -49,5 +49,5 @@ func change_animation() -> void:
 		elif parent.velocity.y < 0:
 			dir = "up"
 		if dir != "":
-			parent.anim.play("move-"+dir)
+			parent.anim.play_backwards("move-"+dir)
 			parent.last_direction = dir
