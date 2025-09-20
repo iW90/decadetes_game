@@ -14,8 +14,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xuynl"]
 shader = ExtResource("2_y74mo")
-shader_parameter/scale_x = 0.6
-shader_parameter/scale_y = 0.2
+shader_parameter/scale_x = 0.3
+shader_parameter/scale_y = 0.11
 shader_parameter/alpha = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb104"]
@@ -454,30 +454,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yd2i"]
-size = Vector2(50, 124)
+size = Vector2(19.6, 42.8)
 
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(-3, -2)
+scale = Vector2(2.5, 2.5)
+collision_layer = 2
 script = ExtResource("1_glmxd")
 
 [node name="Shadow" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_xuynl")
 custom_minimum_size = Vector2(100, 100)
 offset_left = -50.0
-offset_top = 9.0
+offset_top = -20.0
 offset_right = 50.0
-offset_bottom = 109.0
+offset_bottom = 80.0
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_a4iq3")
 animation = &"auto-move-up"
 autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5yd2i")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
