@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bea1t1adbm0og"]
+[gd_scene load_steps=4 format=3 uid="uid://bea1t1adbm0og"]
 
 [ext_resource type="PackedScene" uid="uid://dh7atssycf7kc" path="res://scenes/characters/constructions/tower.tscn" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="2_iyx0m"]
+[ext_resource type="AudioStream" uid="uid://yarisy0nw1oi" path="res://assets/songs/goblin_theme.ogg" id="3_iyx0m"]
 
 [node name="CanvasGroup" type="Node"]
 
@@ -9,3 +10,8 @@
 position = Vector2(343, 280)
 
 [node name="Tower" parent="." instance=ExtResource("1_bl13t")]
+
+[node name="GoblinThemeSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iyx0m")
+autoplay = true
+bus = &"Music"
