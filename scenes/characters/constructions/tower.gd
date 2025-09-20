@@ -2,10 +2,7 @@ extends StaticBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["attack"]
-
-@export var last_direction: String = "down"
-@export var velocity: Vector2 = Vector2.ZERO
+@onready var available_states: Array = ["await", "attack"]
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
@@ -19,3 +16,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.z_index -= 5
+	print(body.z_index)
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	body.z_index += 5
