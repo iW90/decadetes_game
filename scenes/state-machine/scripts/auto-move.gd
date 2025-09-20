@@ -1,13 +1,12 @@
 extends State
 
 @export var title: String = "auto-move"
+
 @export var idle_state: String = "idle"
-@export var move_speed: float = Constants.CHARACTER_SPEED
+@export var move_speed: float = Constants.ENEMY_SPEED
 
 var player = null
 var direction: Vector2 = Vector2.ZERO
-
-#TODO: não aceitar movimento se não for o automove
 
 func _ready() -> void:
 	player = Global.player
@@ -24,6 +23,7 @@ func process_physics(_delta: float):
 	direction = parent.global_position.direction_to(player.global_position)
 
 	change_direction(direction)
+	change_animation()
 
 	parent.velocity = direction * move_speed
 	parent.move_and_slide()
@@ -47,5 +47,3 @@ func change_direction(direction: Vector2) -> void:
 		else:
 			dir = "up"
 	parent.last_direction = dir
-
-	change_animation()

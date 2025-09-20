@@ -4,7 +4,6 @@ extends State
 
 @export var idle_state: String = "idle"
 @export var jump_state: String = "jump"
-
 @export var move_speed: float = Constants.CHARACTER_SPEED
 
 func enter() -> void:
@@ -32,22 +31,24 @@ func process_physics(_delta: float):
 		return null
 
 	change_last_dir()
+	change_animation()
+
 	parent.velocity = dir * move_speed
 	parent.move_and_slide()
 	return null
 
 func change_last_dir() -> void:
+	if parent.anim: return
+
 	var dir: String = ""
 
-	if parent.anim:
-		if parent.velocity.x > 0:
-			dir = "right"
-		elif parent.velocity.x < 0:
-			dir = "left"
-		elif parent.velocity.y > 0:
-			dir = "down"
-		elif parent.velocity.y < 0:
-			dir = "up"
+	if parent.velocity.x > 0:
+		dir = "right"
+	elif parent.velocity.x < 0:
+		dir = "left"
+	elif parent.velocity.y > 0:
+		dir = "down"
+	elif parent.velocity.y < 0:
+		dir = "up"
 
 	parent.last_direction = dir
-	change_animation()

@@ -7,9 +7,7 @@ extends CharacterBody2D
 @export var last_direction: String = "down"
 @export var auto_move_target: Vector2
 
-@export var health: int = 3
-var max_health: int = 3
-
+var health = Constants.ENEMY_HEALTH
 
 var is_auto_moving: bool = false
 

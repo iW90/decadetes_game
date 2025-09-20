@@ -18,7 +18,9 @@ func change_animation() -> void:
 
 	var last_dir = parent.last_direction
 	var state = name.to_lower()
+	
 	if state == "auto-move":
 		state = "move"
+
 	var animation = state + "-" + last_dir
 	parent.anim.play(animation)
