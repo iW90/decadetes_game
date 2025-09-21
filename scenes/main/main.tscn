@@ -15,19 +15,6 @@ spawn_margin = 0
 [node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
 position = Vector2(377, 342)
 
-[node name="Tower" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(565, 230)
-script = null
-
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true

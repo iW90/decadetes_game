@@ -1530,19 +1530,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjt17"]
-<<<<<<< HEAD
 radius = 96.0
 height = 288.0
 
 [node name="GoblinFemale" type="CharacterBody2D" groups=["player"]]
 z_index = 7
-=======
-radius = 76.0
-height = 284.0
-
-[node name="GoblinFemale" type="CharacterBody2D"]
-z_index = 5
->>>>>>> bfca5f8 (damaged state)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_wa8bv")
 
@@ -1561,19 +1553,9 @@ animation = &"move-up"
 autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-<<<<<<< HEAD
 position = Vector2(0, -16)
-=======
->>>>>>> bfca5f8 (damaged state)
 shape = SubResource("CapsuleShape2D_cjt17")
 
 [node name="State" parent="." instance=ExtResource("4_0emke")]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_cjt17")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Camera2D" type="Camera2D" parent="."]
