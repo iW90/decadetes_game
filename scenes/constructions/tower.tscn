@@ -181,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y7o2f")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -257,7 +257,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqx0u"]
 radius = 633.897
 
-[node name="Tower" type="StaticBody2D"]
+[node name="Tower" type="StaticBody2D" groups=["tower"]]
 self_modulate = Color(0.392157, 0.278431, 0.164706, 1)
 script = ExtResource("1_5lgs5")
 
@@ -269,7 +269,7 @@ polygon = PackedVector2Array(-57, 56, -71, 67, -71, 70, -63, 85, -67, 96, -68, 1
 [node name="Bounce" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_aowav")
-animation = &"dying"
+animation = &"damage"
 speed_scale = 1.9
 
 [node name="Crystal" type="Area2D" parent="."]
