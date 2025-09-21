@@ -42,15 +42,22 @@ func _on_tower_spell_range_body_exited(body: Node2D) -> void:
 	
 func _on_time_for_next_attack_timeout() -> void:
 	send_attack()
-	health -= 50
+
+func _on_animation_damage_finished() -> void:
+	print("aqui")
+	health -= 20
 	health_bar.set_health(health)
-	
+	anim.stop()
+	state_machine.change_state_by_name("await")
+
 func _on_animation_dying_finished() -> void:
 	game_over_song.stop()
 	time_for_next_attack.stop()
 	anim.stop()
 
 func send_attack() -> void:
+	if targets.is_empty():
+		return
 	var target = targets.front()
 	if target:
 		var direction = (target.global_position - global_position).normalized()
@@ -59,7 +66,6 @@ func send_attack() -> void:
 		var thunderbolt = ThunderboltScene.instantiate()
 		thunderbolt.initialize(start_position, direction)
 		get_parent().call_deferred("add_child", thunderbolt)
-
 
 func remove_target(body: Node2D) -> void:
 	var pos = targets.find(body, 0)
