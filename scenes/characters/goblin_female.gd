@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "move", "jump", "fall"]
+@onready var available_states: Array = ["idle", "move", "jump", "fall", "attack"]
 @onready var health_bar: ProgressBar = $HealthBar
 
 @onready var face: String = "up"
@@ -17,6 +17,9 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	if Input.is_action_just_pressed("click_attack"): # ao clicar com o esquerdo do mouse ataca
+		state_machine.change_state_by_name("attack")
+		
 	#codigo pra testar a vida (b diminui, enter aumenta)
 	if Input.is_action_just_pressed("backwards"):
 		take_damage(5)
