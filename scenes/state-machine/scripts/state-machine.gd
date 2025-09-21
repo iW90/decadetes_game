@@ -24,6 +24,8 @@ func init(parent: Node, loaded_states: Array) -> void:
 
 # Accept either a State node or a String name
 func change_state(new_state) -> void:
+	if is_disabled: return
+		
 	if new_state == null:
 		push_error("StateMachine.change_state called with null")
 		return

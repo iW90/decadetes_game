@@ -1533,8 +1533,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjt17"]
-radius = 94.0
-height = 268.0
+radius = 148.0
+height = 372.0
 
 [node name="GoblinFemale" type="CharacterBody2D" groups=["player"]]
 z_index = 7
@@ -1552,7 +1552,7 @@ mouse_filter = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_415rc")
-animation = &"dying"
+animation = &"attack-down"
 autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1577,6 +1577,11 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="DamageArea" type="Area2D" parent="."]
+z_index = 7
+position = Vector2(12, 10)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
 
 [node name="CollisionDamage" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CapsuleShape2D_cjt17")
@@ -1588,6 +1593,4 @@ script = ExtResource("22_dosix")
 stream = ExtResource("23_0t24f")
 bus = &"SFX"
 
-[connection signal="area_entered" from="DamageArea" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="DamageArea" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_shape_entered" from="DamageArea" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
