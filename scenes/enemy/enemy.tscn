@@ -1,25 +1,27 @@
-[gd_scene load_steps=355 format=3 uid="uid://dam4ath8sjgx2"]
+[gd_scene load_steps=357 format=3 uid="uid://dam4ath8sjgx2"]
 
 [ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
-[ext_resource type="Texture2D" uid="uid://crpkrwvxmgliq" path="res://assets/characters/enemy/new/Front/Attack.png" id="2_5woo5"]
+[ext_resource type="Texture2D" uid="uid://crpkrwvxmgliq" path="res://assets/characters/enemy/Front/Attack.png" id="2_5woo5"]
 [ext_resource type="Shader" uid="uid://dxuc5gjgaxqck" path="res://scenes/characters/char-shadow.gdshader" id="2_y74mo"]
-[ext_resource type="Texture2D" uid="uid://8xkc0o3fra25" path="res://assets/characters/enemy/new/Left_Side/Attack.png" id="3_pb0yv"]
-[ext_resource type="Texture2D" uid="uid://cndt6fw1rdg14" path="res://assets/characters/enemy/new/Right_Side/Attack.png" id="4_prup0"]
+[ext_resource type="Texture2D" uid="uid://8xkc0o3fra25" path="res://assets/characters/enemy/Left_Side/Attack.png" id="3_pb0yv"]
+[ext_resource type="Texture2D" uid="uid://cndt6fw1rdg14" path="res://assets/characters/enemy/Right_Side/Attack.png" id="4_prup0"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="4_y7hbn"]
-[ext_resource type="Texture2D" uid="uid://bndcmyyft8vpn" path="res://assets/characters/enemy/new/Back/Attack.png" id="5_dxjon"]
-[ext_resource type="Texture2D" uid="uid://pc10ukoj1g7f" path="res://assets/characters/enemy/new/Front/Run.png" id="6_f5q6l"]
-[ext_resource type="Texture2D" uid="uid://bmnl4dnjrejpy" path="res://assets/characters/enemy/new/Left_Side/Run.png" id="7_8ed2q"]
-[ext_resource type="Texture2D" uid="uid://cc15xv2nj33r5" path="res://assets/characters/enemy/new/Right_Side/Run.png" id="8_wk82e"]
-[ext_resource type="Texture2D" uid="uid://dmgp1olxjwhy8" path="res://assets/characters/enemy/new/Back/Run.png" id="9_bsmli"]
-[ext_resource type="Texture2D" uid="uid://cm2d0q77swert" path="res://assets/characters/enemy/new/Front/Died.png" id="10_8ed2q"]
-[ext_resource type="Texture2D" uid="uid://dpgdstf7vqpab" path="res://assets/characters/enemy/new/Front/Hurt.png" id="11_wk82e"]
-[ext_resource type="Texture2D" uid="uid://7fld1catjci6" path="res://assets/characters/enemy/new/Left_Side/Hurt.png" id="12_bsmli"]
-[ext_resource type="Texture2D" uid="uid://d4eah2g1h16en" path="res://assets/characters/enemy/new/Right_Side/Hurt.png" id="13_cicna"]
-[ext_resource type="Texture2D" uid="uid://dglm0l6ax31h3" path="res://assets/characters/enemy/new/Back/Hurt.png" id="14_sff7j"]
-[ext_resource type="Texture2D" uid="uid://bjy7bqoby4b4v" path="res://assets/characters/enemy/new/Front/Iddle.png" id="15_qtpa6"]
-[ext_resource type="Texture2D" uid="uid://t01dqnfi7iuk" path="res://assets/characters/enemy/new/Left_Side/Iddle.png" id="16_2xn8g"]
-[ext_resource type="Texture2D" uid="uid://cx0aejmds478d" path="res://assets/characters/enemy/new/Right_Side/Iddle.png" id="17_78r2a"]
-[ext_resource type="Texture2D" uid="uid://nfnjvknmwq3o" path="res://assets/characters/enemy/new/Back/Iddle.png" id="18_emhag"]
+[ext_resource type="Texture2D" uid="uid://bndcmyyft8vpn" path="res://assets/characters/enemy/Back/Attack.png" id="5_dxjon"]
+[ext_resource type="Texture2D" uid="uid://pc10ukoj1g7f" path="res://assets/characters/enemy/Front/Run.png" id="6_f5q6l"]
+[ext_resource type="Texture2D" uid="uid://bmnl4dnjrejpy" path="res://assets/characters/enemy/Left_Side/Run.png" id="7_8ed2q"]
+[ext_resource type="Texture2D" uid="uid://cc15xv2nj33r5" path="res://assets/characters/enemy/Right_Side/Run.png" id="8_wk82e"]
+[ext_resource type="Texture2D" uid="uid://dmgp1olxjwhy8" path="res://assets/characters/enemy/Back/Run.png" id="9_bsmli"]
+[ext_resource type="Texture2D" uid="uid://cm2d0q77swert" path="res://assets/characters/enemy/Front/Died.png" id="10_8ed2q"]
+[ext_resource type="Texture2D" uid="uid://dpgdstf7vqpab" path="res://assets/characters/enemy/Front/Hurt.png" id="11_wk82e"]
+[ext_resource type="Texture2D" uid="uid://7fld1catjci6" path="res://assets/characters/enemy/Left_Side/Hurt.png" id="12_bsmli"]
+[ext_resource type="Texture2D" uid="uid://d4eah2g1h16en" path="res://assets/characters/enemy/Right_Side/Hurt.png" id="13_cicna"]
+[ext_resource type="Texture2D" uid="uid://dglm0l6ax31h3" path="res://assets/characters/enemy/Back/Hurt.png" id="14_sff7j"]
+[ext_resource type="Texture2D" uid="uid://bjy7bqoby4b4v" path="res://assets/characters/enemy/Front/Iddle.png" id="15_qtpa6"]
+[ext_resource type="Texture2D" uid="uid://t01dqnfi7iuk" path="res://assets/characters/enemy/Left_Side/Iddle.png" id="16_2xn8g"]
+[ext_resource type="Texture2D" uid="uid://cx0aejmds478d" path="res://assets/characters/enemy/Right_Side/Iddle.png" id="17_78r2a"]
+[ext_resource type="Texture2D" uid="uid://nfnjvknmwq3o" path="res://assets/characters/enemy/Back/Iddle.png" id="18_emhag"]
+[ext_resource type="AudioStream" uid="uid://0g38i4aiulnt" path="res://assets/sound_effects/sword_attacks/sword.1.ogg" id="21_wk82e"]
+[ext_resource type="Script" uid="uid://rj1yxqk3nmf2" path="res://scenes/enemy/attack_sound.gd" id="22_bsmli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cicna"]
 atlas = ExtResource("2_5woo5")
@@ -2467,6 +2469,10 @@ position = Vector2(-2, 1.2)
 shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_wk82e")
+script = ExtResource("22_bsmli")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2" to="." method="_on_area_2d_body_entered"]
