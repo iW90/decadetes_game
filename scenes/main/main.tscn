@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b86jjrfsnkb3s"]
+[gd_scene load_steps=8 format=3 uid="uid://b86jjrfsnkb3s"]
 
 [ext_resource type="PackedScene" uid="uid://q4crka30n2ym" path="res://scenes/characters/goblin-female.tscn" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://da6j153x557sd" path="res://scenes/main/main.gd" id="1_k2fmo"]
