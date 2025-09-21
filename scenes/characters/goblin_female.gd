@@ -7,7 +7,7 @@ signal map_position(pos: Vector2)
 @onready var available_states: Array = ["idle", "move", "jump", "fall", "attack", "hurt", "dying"]
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var face: String = "up"
-var health := 100
+var health := 30
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
@@ -28,13 +28,6 @@ func _physics_process(delta: float) -> void:
 		state_machine.change_state_by_name("attack")
 
 	map_position.emit(global_position)
-
-	#codigo pra testar a vida (b diminui, enter aumenta)
-	if Input.is_action_just_pressed("backwards"):
-		take_damage(5)
-	elif Input.is_action_just_pressed("ui_accept"):
-		take_damage(-5)
-	#fim do codigo descartavel
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)

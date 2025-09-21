@@ -40,6 +40,7 @@ func move_to_position(target: Vector2) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		$AttackSound.play_random_sword_sound()
+
 		state_machine.change_state_by_name("attack")
 
 func _on_area_2_body_exited(body: Node2D) -> void:

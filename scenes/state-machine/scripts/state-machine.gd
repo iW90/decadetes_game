@@ -4,6 +4,7 @@ extends Node
 var current_state: State = null
 var states: Dictionary = {}
 var parent_node: Node = null
+var is_disabled := false
 
 #Initial state (loaded_states) must be on index 0
 func init(parent: Node, loaded_states: Array) -> void:
@@ -57,17 +58,17 @@ func get_state_name() -> String:
 	return current_state.name.to_lower()
 
 func process_input(event: InputEvent) -> void:
-	if current_state == null: return
+	if current_state == null or is_disabled: return
 	var next = current_state.process_input(event)
 	_check_for_transition(next)
 
 func process_frame(delta: float) -> void:
-	if current_state == null: return
+	if current_state == null or is_disabled: return
 	var next = current_state.process_frame(delta)
 	_check_for_transition(next)
 
 func process_physics(delta: float) -> void:
-	if current_state == null: return
+	if current_state == null or is_disabled: return
 	var next = current_state.process_physics(delta)
 
 	_check_for_transition(next)
@@ -82,5 +83,6 @@ func _check_for_transition(next) -> void:
 	else:
 		push_warning("StateMachine: state returned unsupported type: %s" % typeof(next))
 
-#func game_over():
-	
+
+func disable() -> void:
+	is_disabled = true

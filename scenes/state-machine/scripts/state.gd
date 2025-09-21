@@ -3,6 +3,7 @@ extends Node
 
 # parent will be the (CharacterBody2D), injected by StateMachine.init()
 var parent: Node = null
+var game_over :=false
 
 # lifecycle hooks
 func enter() -> void:
@@ -32,13 +33,23 @@ func update_face_direction(direction: Vector2):
 			dir = "up"
 	parent.face = dir
 	update_animation()
-	
+
 func update_animation() -> void:
 	var animation_title: String = ""
+	if game_over: return
 
 	if "anim" in parent:
 		animation_title += name.to_lower()
+		is_finish(animation_title)
 		if "face" in parent:
 			animation_title = "%s-%s" %[animation_title, parent.face]
 		if parent.anim.sprite_frames.has_animation(animation_title):
 			parent.anim.play(animation_title)
+
+func is_finish(anim:String):
+	if (not anim.contains("dying")): return
+
+	if parent.name != "GoblinFemale":
+		if parent.anim.frame == 9:
+			parent.state_machine.disable()
+	parent.anim.play(anim)
