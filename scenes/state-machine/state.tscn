@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://bsrsp1nai4fxs" path="res://scenes/state-machine/scripts/fall.gd" id="5_fe54u"]
 [ext_resource type="Script" uid="uid://sysrjk7iwen8" path="res://scenes/state-machine/scripts/attack.gd" id="6_0e8cc"]
 [ext_resource type="Script" uid="uid://dwr0jfwafx8go" path="res://scenes/state-machine/scripts/auto-move.gd" id="6_lxmgx"]
-[ext_resource type="Script" uid="uid://bwlxpkist2wq8" path="res://scenes/state-machine/scripts/await.gd" id="8_143yg"]
+[ext_resource type="Script" path="res://scenes/state-machine/scripts/await.gd" id="8_143yg"]
+[ext_resource type="Script" uid="uid://cursn1s1q1ct0" path="res://scenes/state-machine/scripts/damage.gd" id="9_ofnwr"]
 
 [node name="State" type="Node"]
 script = ExtResource("1_ihbxb")
