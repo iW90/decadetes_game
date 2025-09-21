@@ -4,7 +4,7 @@ extends State
 
 @export var idle_state: String = "idle"
 @export var move_speed: float = Constants.ENEMY_SPEED
-@export var chase_player_distance: float = 300.0
+@export var chase_player_distance: float = 400.0
 
 var player = null
 var tower = null
