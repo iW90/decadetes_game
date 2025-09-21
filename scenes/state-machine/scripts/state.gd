@@ -57,8 +57,10 @@ func update_animations() -> void:
 
 func is_finish(anim:String):
 	if (not anim.contains("dying")): return
-
-	if parent.name != "GoblinFemale":
+	await get_tree().create_timer(1.0).timeout
+	if parent.name == "GoblinFemale":
 		if parent.anim.frame == 9:
 			parent.state_machine.disable()
+		await get_tree().create_timer(1.0).timeout
+
 	parent.anim.play(anim)

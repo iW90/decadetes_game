@@ -4,12 +4,12 @@ signal map_position(pos: Vector2)
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "jump", "fall", "auto-move", "attack", "damage"]
+@onready var available_states: Array = ["idle", "jump", "fall", "auto-move", "attack", "damage", "hurt", "dying"]
 
 @export var face: String = "down"
 @export var auto_move_target: Vector2
 
-var health = Constants.ENEMY_HEALTH
+var health = 1 #Constants.ENEMY_HEALTH
 var player = null
 
 func _ready() -> void:
@@ -28,6 +28,14 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
+func take_damage():
+	print("inimigo tomou dano")
+	health -= 1
+	if health <= 0:
+		state_machine.change_state_by_name("dying")
+	else:
+		state_machine.change_state_by_name("hurt")
+
 func move_to_screen_center() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
 	auto_move_target = screen_size / 2
@@ -39,8 +47,8 @@ func move_to_position(target: Vector2) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		$CanAttack.start()
 		$AttackSound.play_random_sword_sound()
-
 		state_machine.change_state_by_name("attack")
 
 func _on_area_2_body_exited(body: Node2D) -> void:
@@ -51,3 +59,6 @@ func _on_animated_sprite_2d_animation_looped() -> void:
 	if state_machine.get_state_name() == "attack":
 		#$AttackSound.play_random_sword_sound()
 		player.take_damage(10)
+
+func coldown():
+	await get_tree().create_timer(4).timeout
