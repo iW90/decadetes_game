@@ -31,6 +31,7 @@ window/stretch/scale=0.8
 
 player="grupo do player"
 enemy=""
+tower=""
 
 [input]
 
