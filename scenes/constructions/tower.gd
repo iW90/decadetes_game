@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func _on_tower_spell_range_body_entered(body: Node2D) -> void:
