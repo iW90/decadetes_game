@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2syxsyck4mit"]
+[gd_scene load_steps=3 format=3 uid="uid://c2syxsyck4mit"]
 
 [ext_resource type="PackedScene" uid="uid://b4guw3wc7i667" path="res://scenes/map/map.tscn" id="1_0lp22"]
+[ext_resource type="Script" uid="uid://0wbbjxi7q1t2" path="res://scenes/main/position_tracker.gd" id="1_8snx5"]
 
 [node name="MiniMap" type="CanvasLayer"]
 offset = Vector2(1.27, 0)
 transform = Transform2D(1, 0, 0, 1, 1.27, 0)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="PositionTracker" type="ColorRect" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -19,6 +20,7 @@ offset_bottom = -45.0
 grow_horizontal = 0
 grow_vertical = 0
 color = Color(0.23, 0.23, 0.23, 0.564706)
+script = ExtResource("1_8snx5")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0.537255)

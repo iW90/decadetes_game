@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal map_position(pos: Vector2)
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
 @onready var available_states: Array = ["idle", "move", "jump", "fall", "attack"]
@@ -11,6 +13,11 @@ func _ready() -> void:
 	state_machine.init(self, available_states)
 	Global.player = self
 	health_bar.init(health)
+	var minimap = get_tree().get_first_node_in_group("minimap")
+	if minimap:
+		var tracker = minimap.get_child(0)
+		if tracker:
+			tracker.register_unit(self)
 
 func _input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -19,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 	if Input.is_action_just_pressed("click_attack"): # ao clicar com o esquerdo do mouse ataca
 		state_machine.change_state_by_name("attack")
+
+	map_position.emit(global_position)
 
 	#codigo pra testar a vida (b diminui, enter aumenta)
 	if Input.is_action_just_pressed("backwards"):
