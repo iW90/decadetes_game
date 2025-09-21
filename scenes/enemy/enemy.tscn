@@ -1,4 +1,4 @@
-[gd_scene load_steps=357 format=3 uid="uid://dam4ath8sjgx2"]
+[gd_scene load_steps=358 format=3 uid="uid://dam4ath8sjgx2"]
 
 [ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
 [ext_resource type="Texture2D" uid="uid://crpkrwvxmgliq" path="res://assets/characters/enemy/Front/Attack.png" id="2_5woo5"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://nfnjvknmwq3o" path="res://assets/characters/enemy/Back/Iddle.png" id="18_emhag"]
 [ext_resource type="AudioStream" uid="uid://0g38i4aiulnt" path="res://assets/sound_effects/sword_attacks/sword.1.ogg" id="21_wk82e"]
 [ext_resource type="Script" uid="uid://rj1yxqk3nmf2" path="res://scenes/enemy/attack_sound.gd" id="22_bsmli"]
+[ext_resource type="AudioStream" uid="uid://kn3rkks5rhtx" path="res://assets/sound_effects/human_dead.mp3" id="23_cicna"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cicna"]
 atlas = ExtResource("2_5woo5")
@@ -2472,7 +2473,12 @@ shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_wk82e")
+bus = &"SFX"
 script = ExtResource("22_bsmli")
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_cicna")
+bus = &"SFX"
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2" to="." method="_on_area_2d_body_entered"]

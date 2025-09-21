@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Decadetes"
-run/main_scene="uid://b86jjrfsnkb3s"
+run/main_scene="uid://cae0csv71xjgn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
