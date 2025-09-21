@@ -52,7 +52,7 @@ func move_to_position(target: Vector2) -> void:
 	state_machine.change_state_by_name("auto-move")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") or body.is_in_group("tower"):
+	if body.is_in_group("player"):
 		$CanAttack.start()
 		$AttackSound.play_random_sword_sound()
 		state_machine.change_state_by_name("attack")
@@ -63,7 +63,7 @@ func _on_area_2_body_exited(body: Node2D) -> void:
 
 func _on_animated_sprite_2d_animation_looped() -> void:
 	if state_machine.get_state_name() == "attack":
-		player.take_damage(10)
+		player.take_damage(5)
 
 func coldown():
 	await get_tree().create_timer(4).timeout

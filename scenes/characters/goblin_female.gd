@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func take_damage(amount:int):
-	health -= 0 #amount
+	health -= amount
 	health_bar.set_health(health)
 	state_machine.change_state_by_name("hurt")
 	if health <= 0:
