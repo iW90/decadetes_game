@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://bp6mlyyxvl08"]
+
+[ext_resource type="Script" uid="uid://bdd8wke5mr50p" path="res://scenes/spells/thunderbolt/thunderbolt.gd" id="1_5c7x8"]
+[ext_resource type="Texture2D" uid="uid://dfh06h6hjedtw" path="res://assets/spells/thunderbolt/front/Explosion_3.png" id="2_44a4s"]
+[ext_resource type="Texture2D" uid="uid://dcpuay5hmipec" path="res://assets/spells/thunderbolt/front/Explosion_4.png" id="3_n0i0s"]
+[ext_resource type="Texture2D" uid="uid://bsgc53oroh57x" path="res://assets/spells/thunderbolt/front/Explosion_5.png" id="4_2tdyv"]
+[ext_resource type="Texture2D" uid="uid://b1eq6ufr3ggdu" path="res://assets/spells/thunderbolt/front/Explosion_1.png" id="5_2st0s"]
+[ext_resource type="Texture2D" uid="uid://caq77mvxj6cl2" path="res://assets/spells/thunderbolt/front/Explosion_2.png" id="6_6hlc0"]
+[ext_resource type="Texture2D" uid="uid://b781xveslnnmi" path="res://assets/spells/thunderbolt/back/Explosion_1_1.png" id="7_33nfi"]
+[ext_resource type="Texture2D" uid="uid://cervs2p12e8i7" path="res://assets/spells/thunderbolt/back/Explosion_1_3.png" id="8_wfbnj"]
+[ext_resource type="Texture2D" uid="uid://du047aoxxltik" path="res://assets/spells/thunderbolt/back/Explosion_1_2.png" id="9_stvok"]
+[ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="10_ekymo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssre4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_44a4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n0i0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2tdyv")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2st0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6hlc0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gayx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_33nfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wfbnj")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_33nfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_stvok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7dfl"]
+radius = 28.0
+
+[node name="Thunderbolt" type="Area2D"]
+z_index = 1000
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5c7x8")
+
+[node name="front" type="AnimatedSprite2D" parent="."]
+position = Vector2(230, 4.57764e-05)
+rotation = -1.57079
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_ssre4")
+animation = &"damage"
+autoplay = "default"
+offset = Vector2(0, 330)
+
+[node name="back" type="AnimatedSprite2D" parent="."]
+position = Vector2(231, 4.57764e-05)
+rotation = 1.57079
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_4gayx")
+autoplay = "default"
+offset = Vector2(0, 330)
+
+[node name="State" parent="." instance=ExtResource("10_ekymo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(451, 0)
+rotation = -1.57079
+shape = SubResource("CircleShape2D_t7dfl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
