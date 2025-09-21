@@ -27,7 +27,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("click_attack"): # ao clicar com o esquerdo do mouse ataca
 		state_machine.change_state_by_name("attack")
 
+
+
 	map_position.emit(global_position)
+
 
 	#codigo pra testar a vida (b diminui, enter aumenta)
 	if Input.is_action_just_pressed("backwards"):
