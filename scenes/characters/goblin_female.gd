@@ -42,6 +42,7 @@ func take_damage(amount:int):
 
 func attack():
 	if Input.is_action_just_pressed("click_attack"): # ao clicar com o esquerdo do mouse ataca
+		$AttackSound.play_random_sword_sound()
 #		if not damage_area.get_collision_layer_value(2):
 		is_enable_damage_area(true)
 		state_machine.change_state_by_name("attack")
