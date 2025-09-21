@@ -18,14 +18,12 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
-func _on_tower_spell_range_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
-		can_attack = false
-		$TimeForNextAttack.start()
-		var direction = (body.global_position - global_position).normalized()
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.z_index -= 5
+	# print(body.z_index)
 
 		var start_position = global_position + Vector2(35, -100)
 		var thunderbolt = ThunderboltScene.instantiate()
