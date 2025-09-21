@@ -3,12 +3,18 @@ extends Node
 @export var enemy_scene: PackedScene
 @export var spawn_margin := 200
 
+var max_enemies := 10
+var enemy_count := 0
+
 var player = null
 
 func _ready() -> void:
 	player = Global.player
 
 func spawn_enemy():
+	if enemy_count >= max_enemies:
+		return
+	enemy_count += 1
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
 	enemy.position = calculate_spawn_pos()
