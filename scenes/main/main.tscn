@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dam4ath8sjgx2" path="res://scenes/enemy/enemy.tscn" id="2_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://05kkvktwo0k5" path="res://scenes/hud/hud.tscn" id="3_ow5a4"]
 [ext_resource type="AudioStream" uid="uid://csiy2xs84asls" path="res://assets/songs/battle_wazeel.ogg" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://c2syxsyck4mit" path="res://scenes/main/mini_map.tscn" id="6_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://b4guw3wc7i667" path="res://scenes/map/map.tscn" id="7_yyfjg"]
 
 [node name="Main" type="Node2D"]
@@ -28,5 +29,7 @@ bus = &"Music"
 
 [node name="Map" parent="." instance=ExtResource("7_yyfjg")]
 position = Vector2(-54, 8)
+
+[node name="MiniMap" parent="." instance=ExtResource("6_ow5a4")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spaw_timer_timeout"]
