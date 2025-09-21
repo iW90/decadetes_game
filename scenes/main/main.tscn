@@ -7,14 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b4guw3wc7i667" path="res://scenes/map/map.tscn" id="7_yyfjg"]
 
 [node name="Main" type="Node2D"]
+z_index = 10
 script = ExtResource("1_k2fmo")
 enemy_scene = ExtResource("2_k2fmo")
 spawn_margin = 0
 
 [node name="GoblinFemale" parent="." instance=ExtResource("1_iuonh")]
 position = Vector2(377, 342)
-
-[node name="Camera2D" type="Camera2D" parent="GoblinFemale"]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 1.5

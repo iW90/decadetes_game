@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
-
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	print("viewport: ", viewport, " event: ", event, " index: ", shape_idx)
 
@@ -31,3 +30,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		for child in enemy.get_children():
 			if child is StateMachine:
 				child.change_state("damage")
+
+func take_damage(amount:int):
+	health -= amount

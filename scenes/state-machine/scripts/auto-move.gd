@@ -21,27 +21,8 @@ func process_physics(_delta: float):
 	if not parent or not player: return idle_state
 	var direction: Vector2 = parent.global_position.direction_to(player.global_position)
 
-	change_face(direction)
+	update_face_direction(direction)
 	parent.velocity = direction * move_speed
 	parent.move_and_slide()
 
 	return null
-
-func change_face(direction: Vector2) -> void:
-	if not "face" in parent:
-		return
-
-	var dir: String = ""
-
-	if abs(direction.x) > abs(direction.y):
-		if direction.x > 0:
-			dir = "right"
-		else:
-			dir = "left"
-	else:
-		if direction.y > 0:
-			dir = "down"
-		else:
-			dir = "up"
-	parent.face = dir
-	update_animation()
