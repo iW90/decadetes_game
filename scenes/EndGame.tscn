@@ -1,26 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4mwdlq7oij2g"]
-
-[sub_resource type="GDScript" id="GDScript_hbvkc"]
-script/source = "# EndGame.gd
-extends Node
-
-@onready var win_label: Label = $WinLabel
-@onready var lost_label: Label = $LostLabel
-
-@export var result: String = \"\" # \"win\" ou \"lost\"
-
-func _ready() -> void:
-	win_label.visible = false
-	lost_label.visible = false
-	
-	if result == \"win\":
-		win_label.visible = true
-	elif result == \"lost\":
-		lost_label.visible = true
-"
+[gd_scene format=3 uid="uid://b4mwdlq7oij2g"]
 
 [node name="EndGame" type="Node"]
-script = SubResource("GDScript_hbvkc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -47,4 +27,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 160
 text = "YOU DIED"
