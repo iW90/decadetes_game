@@ -76,7 +76,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1500, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -256,7 +256,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -120)]
+"values": [Vector2(1500, -120)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -280,7 +280,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -50)]
+"values": [Vector2(1500, -50)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -368,7 +368,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(1.9, 2.1, 2.21904, 2.3172, 2.4, 4.5, 4.7, 5.0082, 6.38859, 6.515, 6.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-742, 0), Vector2(-750, 0), Vector2(-715, -15), Vector2(-690, 0), Vector2(-690, 0), Vector2(-694.637, 84.0322), Vector2(-694.637, 84.0322), Vector2(-694.637, 84.0322), Vector2(-676.494, 84.0321), Vector2(-700, 90)]
+"values": [Vector2(1500, 0), Vector2(-742, 0), Vector2(-750, 0), Vector2(-715, -15), Vector2(-690, 0), Vector2(-690, 0), Vector2(-694.637, 84.0322), Vector2(-694.637, 84.0322), Vector2(-694.637, 84.0322), Vector2(-676.494, 84.0321), Vector2(-700, 90)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -548,7 +548,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(2.93333, 3.03333, 3.23333, 3.33333, 3.433, 3.533, 3.633, 4, 4.2, 4.4, 4.5, 4.7, 4.865, 5.01399, 5.03, 5.09831, 5.195, 5.525, 6.15365, 6.185, 6.2708, 6.38859, 6.515, 6.68, 6.845),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -120), Vector2(-520, -120), Vector2(-700, -120), Vector2(-900, -120), Vector2(-1000, -120), Vector2(-1000, -150), Vector2(-1000, -200), Vector2(-1000, -135), Vector2(-980, -110), Vector2(-977, -65), Vector2(-982, -61), Vector2(-985, 23.032), Vector2(-986, 23.032), Vector2(-986, 23.032), Vector2(-989, 4.5), Vector2(-989, 4.5), Vector2(-970, 4.5), Vector2(-987, 5.5), Vector2(-987, 5.5), Vector2(-973, 2), Vector2(-960, 1), Vector2(-960, 1), Vector2(-950, 1), Vector2(-990, 37), Vector2(-1020, 70)]
+"values": [Vector2(1500, -120), Vector2(-520, -120), Vector2(-700, -120), Vector2(-900, -120), Vector2(-1000, -120), Vector2(-1000, -150), Vector2(-1000, -200), Vector2(-1000, -135), Vector2(-980, -110), Vector2(-977, -65), Vector2(-982, -61), Vector2(-985, 23.032), Vector2(-986, 23.032), Vector2(-986, 23.032), Vector2(-989, 4.5), Vector2(-989, 4.5), Vector2(-970, 4.5), Vector2(-987, 5.5), Vector2(-987, 5.5), Vector2(-973, 2), Vector2(-960, 1), Vector2(-960, 1), Vector2(-950, 1), Vector2(-990, 37), Vector2(-1020, 70)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
@@ -572,7 +572,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(4.5, 4.865, 5.03, 5.745, 5.91, 6.02, 6.185, 6.35, 6.72986, 6.845),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 0.267944, 1),
 "update": 0,
-"values": [Vector2(0, -150), Vector2(-990, -90), Vector2(-1200, -197), Vector2(-1200, -197), Vector2(-1200, -142), Vector2(-1200, -120), Vector2(-1189, -107), Vector2(-1189, -100), Vector2(-1080, -1), Vector2(-1080, 0)]
+"values": [Vector2(1500, -150), Vector2(-990, -90), Vector2(-1200, -197), Vector2(-1200, -197), Vector2(-1200, -142), Vector2(-1200, -120), Vector2(-1189, -107), Vector2(-1189, -100), Vector2(-1080, -1), Vector2(-1080, 0)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -712,14 +712,15 @@ texture = ExtResource("2_tlqhv")
 position = Vector2(1542, 130)
 
 [node name="Cadetes" type="Sprite2D" parent="Team"]
+position = Vector2(1500, 0)
 texture = ExtResource("3_hbiqw")
 
 [node name="D" type="Sprite2D" parent="Team"]
-position = Vector2(0, -50)
+position = Vector2(1500, -50)
 texture = ExtResource("11_qxfoj")
 
 [node name="E" type="Sprite2D" parent="Team"]
-position = Vector2(0, -120)
+position = Vector2(1500, -120)
 texture = ExtResource("12_0iisf")
 
 [node name="OpeningSong" type="AudioStreamPlayer2D" parent="."]
