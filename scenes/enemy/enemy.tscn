@@ -2435,7 +2435,9 @@ shader_parameter/alpha = 0.6
 radius = 19.2
 height = 62.4
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+light_mask = 3
+visibility_layer = 3
 z_index = 7
 scale = Vector2(2.5, 2.5)
 collision_layer = 2

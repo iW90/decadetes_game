@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk0yru8nkj86l"]
+[gd_scene load_steps=15 format=3 uid="uid://dk0yru8nkj86l"]
 
 [ext_resource type="Script" uid="uid://d04kqfgtbsfn3" path="res://scenes/constructions/tower.gd" id="1_5lgs5"]
 [ext_resource type="Texture2D" uid="uid://5e1koqyy5o15" path="res://assets/characters/tower.png" id="2_cwj8y"]
@@ -70,6 +70,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqx0u"]
+radius = 312.006
+
 [node name="Tower" type="StaticBody2D"]
 self_modulate = Color(0.392157, 0.278431, 0.164706, 1)
 script = ExtResource("1_5lgs5")
@@ -95,5 +98,25 @@ polygon = PackedVector2Array(-56, 56, -57, 46, -55, 9, -20, -17, -18, -43, -49, 
 
 [node name="State" parent="." instance=ExtResource("3_hpyft")]
 
+[node name="TowerSpellRange" type="Area2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="RangeShape" type="CollisionShape2D" parent="TowerSpellRange"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-2.00001, 108)
+rotation = 0.415267
+skew = 0.733038
+shape = SubResource("CircleShape2D_aqx0u")
+
+[node name="TimeForNextAttack" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Crystal" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Crystal" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="TowerSpellRange" to="." method="_on_tower_spell_range_body_entered"]
+[connection signal="timeout" from="TimeForNextAttack" to="." method="_on_time_for_next_attack_timeout"]
