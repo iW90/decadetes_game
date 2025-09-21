@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/fun_dindin.mp3-6ead73b83bd2bca2184b4fc90c6745
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
