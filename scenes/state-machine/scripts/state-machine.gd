@@ -9,7 +9,6 @@ var parent_node: Node = null
 func init(parent: Node, loaded_states: Array) -> void:
 	parent_node = parent
 	parent.state_machine = self
-	print(loaded_states)
 
 	# collect child State nodes keyed by node name (lowercase)
 	for child in get_children():
