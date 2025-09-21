@@ -81,3 +81,6 @@ func _check_for_transition(next) -> void:
 		change_state(next)
 	else:
 		push_warning("StateMachine: state returned unsupported type: %s" % typeof(next))
+
+#func game_over():
+	

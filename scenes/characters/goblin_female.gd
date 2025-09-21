@@ -4,11 +4,11 @@ signal map_position(pos: Vector2)
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "move", "jump", "fall", "attack"]
+@onready var available_states: Array = ["idle", "move", "jump", "fall", "attack", "hurt", "dying"]
 @onready var health_bar: ProgressBar = $HealthBar
-
 @onready var face: String = "up"
 var health := 100
+
 func _ready() -> void:
 	state_machine.init(self, available_states)
 	Global.player = self
@@ -27,10 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("click_attack"): # ao clicar com o esquerdo do mouse ataca
 		state_machine.change_state_by_name("attack")
 
-
-
 	map_position.emit(global_position)
-
 
 	#codigo pra testar a vida (b diminui, enter aumenta)
 	if Input.is_action_just_pressed("backwards"):
@@ -42,21 +39,6 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
-# func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-# 	print("viewport: ", viewport, " event: ", event, " index: ", shape_idx)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == self: return
-
-	if body is CharacterBody2D:
-		body.queue_free()
-
-
-# func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-# 	print("a body entered: ", body_rid, " body: ", body, " body_shape_index: ", body_shape_index, " local shape index: ", local_shape_index)
-
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if enemy is CharacterBody2D:
@@ -64,7 +46,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if child is StateMachine:
 				child.change_state("damage")
 
-
 func take_damage(amount:int):
 	health -= amount
 	health_bar.set_health(health)
+	state_machine.change_state_by_name("hurt")
+	if health <= 0:
+		state_machine.change_state_by_name("dying")
