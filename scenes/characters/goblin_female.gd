@@ -12,7 +12,6 @@ func _ready() -> void:
 	Global.player = self
 	health_bar.init(health)
 
-# trying to avoid _unhandled_input
 func _input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
