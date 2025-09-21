@@ -62,4 +62,3 @@ func is_finish(anim:String):
 		if parent.anim.frame == 9:
 			parent.state_machine.disable()
 	parent.anim.play(anim)
-
