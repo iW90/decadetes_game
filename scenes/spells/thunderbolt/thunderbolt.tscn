@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp6mlyyxvl08"]
+[gd_scene load_steps=15 format=3 uid="uid://bp6mlyyxvl08"]
 
 [ext_resource type="Script" uid="uid://bdd8wke5mr50p" path="res://scenes/spells/thunderbolt/thunderbolt.gd" id="1_5c7x8"]
 [ext_resource type="Texture2D" uid="uid://dfh06h6hjedtw" path="res://assets/spells/thunderbolt/front/Explosion_3.png" id="2_44a4s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cervs2p12e8i7" path="res://assets/spells/thunderbolt/back/Explosion_1_3.png" id="8_wfbnj"]
 [ext_resource type="Texture2D" uid="uid://du047aoxxltik" path="res://assets/spells/thunderbolt/back/Explosion_1_2.png" id="9_stvok"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="10_ekymo"]
+[ext_resource type="AudioStream" uid="uid://0bio31hqsgpg" path="res://assets/sound_effects/explosion.mp3" id="11_44a4s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssre4"]
 animations = [{
@@ -102,6 +103,9 @@ shape = SubResource("CircleShape2D_t7dfl")
 wait_time = 2.2
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_44a4s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
