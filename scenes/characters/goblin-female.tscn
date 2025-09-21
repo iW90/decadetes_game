@@ -1,4 +1,4 @@
-[gd_scene load_steps=226 format=3 uid="uid://q4crka30n2ym"]
+[gd_scene load_steps=227 format=3 uid="uid://q4crka30n2ym"]
 
 [ext_resource type="Texture2D" uid="uid://dsb1y7o4ssp5p" path="res://assets/characters/goblin-female/Front - Idle blinking.png" id="1_cjt17"]
 [ext_resource type="Script" uid="uid://dsak2yoniphae" path="res://scenes/characters/goblin_female.gd" id="1_wa8bv"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://clqi1qebr37ux" path="res://assets/characters/goblin-female/Back - Hurt.png" id="11_g3dk7"]
 [ext_resource type="Texture2D" uid="uid://ca3uishddyler" path="res://assets/characters/goblin-female/Front - Running.png" id="16_2qphu"]
 [ext_resource type="Texture2D" uid="uid://dnpod1m4dt183" path="res://assets/characters/goblin-female/Back - Running.png" id="19_lr38g"]
+[ext_resource type="PackedScene" uid="uid://cttpg73c0fnn1" path="res://scenes/characters/utils/health-bar.tscn" id="21_lr38g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0emke"]
 shader = ExtResource("3_qrrn1")
@@ -1560,6 +1561,18 @@ shape = SubResource("CapsuleShape2D_cjt17")
 [node name="State" parent="." instance=ExtResource("4_0emke")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("21_lr38g")]
+z_index = 73
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -150.0
+offset_top = -220.0
+offset_right = 150.0
+offset_bottom = -190.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="DamageArea" type="Area2D" parent="."]
 
