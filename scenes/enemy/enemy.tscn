@@ -1,4 +1,4 @@
-[gd_scene load_steps=355 format=3 uid="uid://dam4ath8sjgx2"]
+[gd_scene load_steps=357 format=3 uid="uid://dam4ath8sjgx2"]
 
 [ext_resource type="Script" uid="uid://d0es7gwh8xn47" path="res://scenes/enemy/enemy.gd" id="1_glmxd"]
 [ext_resource type="Texture2D" uid="uid://crpkrwvxmgliq" path="res://assets/characters/enemy/Front/Attack.png" id="2_5woo5"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://t01dqnfi7iuk" path="res://assets/characters/enemy/Left_Side/Iddle.png" id="16_2xn8g"]
 [ext_resource type="Texture2D" uid="uid://cx0aejmds478d" path="res://assets/characters/enemy/Right_Side/Iddle.png" id="17_78r2a"]
 [ext_resource type="Texture2D" uid="uid://nfnjvknmwq3o" path="res://assets/characters/enemy/Back/Iddle.png" id="18_emhag"]
+[ext_resource type="AudioStream" uid="uid://0g38i4aiulnt" path="res://assets/sound_effects/sword_attacks/sword.1.ogg" id="21_wk82e"]
+[ext_resource type="Script" uid="uid://rj1yxqk3nmf2" path="res://scenes/enemy/attack_sound.gd" id="22_bsmli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cicna"]
 atlas = ExtResource("2_5woo5")
@@ -2469,6 +2471,10 @@ position = Vector2(-2, 1.2)
 shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_wk82e")
+script = ExtResource("22_bsmli")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2" to="." method="_on_area_2d_body_entered"]
