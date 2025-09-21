@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://duiacjnnh3eds"]
+[gd_scene load_steps=5 format=3 uid="uid://duiacjnnh3eds"]
 
 [ext_resource type="Script" uid="uid://dlkirkkxmlfyn" path="res://scripts/start.gd" id="1_yqeox"]
 [ext_resource type="Script" uid="uid://bed70pdt2soo1" path="res://scripts/exit.gd" id="2_vjb58"]
+[ext_resource type="AudioStream" uid="uid://yarisy0nw1oi" path="res://assets/songs/goblin_theme.ogg" id="3_con2f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vjb58"]
 font_size = 36
@@ -29,7 +30,7 @@ offset_left = 420.0
 offset_top = 146.0
 offset_right = 722.0
 offset_bottom = 196.0
-text = "CLICK GAME TEST"
+text = "HUMAN INVADER"
 label_settings = SubResource("LabelSettings_vjb58")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,6 +53,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "SAIR"
 script = ExtResource("2_vjb58")
+
+[node name="GoblinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_con2f")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/start" to="VBoxContainer/start" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="VBoxContainer/exit" method="_on_pressed"]
