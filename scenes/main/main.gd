@@ -14,7 +14,6 @@ func spawn_enemy():
 	enemy.position = calculate_spawn_pos()
 	enemy.move_to_position(player.global_position)
 
-
 func calculate_spawn_pos() -> Vector2:
 	var screen_size = get_viewport().get_visible_rect().size
 	var player_pos = player.global_position
@@ -25,7 +24,6 @@ func calculate_spawn_pos() -> Vector2:
 	var spawn_pos = player_pos + Vector2.RIGHT.rotated(angle) * spawn_distance
 
 	return spawn_pos
-
 
 func _on_spaw_timer_timeout() -> void:
 	spawn_enemy()
