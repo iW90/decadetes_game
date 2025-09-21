@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal map_position(pos: Vector2)
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
 @onready var available_states: Array = ["idle", "jump", "fall", "auto-move", "attack", "damage"]
@@ -13,9 +15,15 @@ var player = null
 func _ready() -> void:
 	state_machine.init(self, available_states)
 	player = Global.player
+	var minimap = get_tree().get_first_node_in_group("minimap")
+	if minimap:
+		var tracker = minimap.get_child(0)
+		if tracker:
+			tracker.register_unit(self)
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	map_position.emit(global_position)
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)

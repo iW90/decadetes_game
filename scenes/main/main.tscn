@@ -30,6 +30,6 @@ bus = &"Music"
 [node name="Map" parent="." instance=ExtResource("7_yyfjg")]
 position = Vector2(-54, 8)
 
-[node name="MiniMap" parent="." instance=ExtResource("6_ow5a4")]
+[node name="MiniMap" parent="." groups=["minimap"] instance=ExtResource("6_ow5a4")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spaw_timer_timeout"]
