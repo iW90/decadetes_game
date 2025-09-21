@@ -28,7 +28,8 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 	if time_for_next_attack.is_stopped():
 		time_for_next_attack.start()
-	if health <= 0:
+	if alive and health <= 0:
+		alive = false
 		game_over_song.play()
 		state_machine.change_state_by_name("dying")
 
