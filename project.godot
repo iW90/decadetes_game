@@ -28,6 +28,7 @@ window/size/resizable=false
 [global_group]
 
 player="grupo do player"
+enemy=""
 
 [input]
 

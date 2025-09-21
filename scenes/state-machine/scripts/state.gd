@@ -6,7 +6,7 @@ var parent: Node = null
 
 # lifecycle hooks
 func enter() -> void:
-	update_animation()
+	update_animations()
 
 func exit() -> void: pass
 # these may return either: null, a State node, or a String state-name (case-insensitive)
