@@ -9,13 +9,13 @@ var parent_node: Node = null
 func init(parent: Node, loaded_states: Array) -> void:
 	parent_node = parent
 	parent.state_machine = self
+	print(loaded_states)
 
 	# collect child State nodes keyed by node name (lowercase)
 	for child in get_children():
 		if child is State and loaded_states.has(child.title):
 			child.parent = parent
 			states[child.title.to_lower()] = child
-
 	var start_key = loaded_states[0]
 	if states.has(start_key):
 		change_state(states[start_key])
