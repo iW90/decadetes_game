@@ -42,3 +42,11 @@ func update_animation() -> void:
 			animation_title = "%s-%s" %[animation_title, parent.face]
 		if parent.anim.sprite_frames.has_animation(animation_title):
 			parent.anim.play(animation_title)
+
+func update_animations() -> void:
+	if "anims" in parent and parent.anims is Array:
+		for anim in parent.anims:
+			parent.anim = anim
+			update_animation()
+		return
+	update_animation()
