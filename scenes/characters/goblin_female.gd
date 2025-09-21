@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var face: String = "up"
 
 @export var last_direction: String = "down"
+var health := 100
 
 func _ready() -> void:
 	state_machine.init(self, available_states)
@@ -47,3 +48,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		for child in enemy.get_children():
 			if child is StateMachine:
 				child.change_state("damage")
+
+func take_damage(amount:int):
+	health -= amount
+	print(health)

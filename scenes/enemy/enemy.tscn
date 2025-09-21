@@ -633,7 +633,7 @@ script = ExtResource("1_glmxd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a4iq3")
-animation = &"attack-up"
+animation = &"attack-left"
 autoplay = "idle-down"
 
 [node name="Area2" type="Area2D" parent="."]
@@ -654,10 +654,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.4)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_peoo5")
 
 [node name="State" parent="." instance=ExtResource("4_y7hbn")]
 
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2" to="." method="_on_area_2_body_exited"]
