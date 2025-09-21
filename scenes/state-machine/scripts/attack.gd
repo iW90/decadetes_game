@@ -2,10 +2,6 @@ extends State
 
 @export var title: String = "attack"
 
-@export var idle_state: String = "idle"
-@export var move_state: String = "move"
-@export var gravity: float = Constants.GRAVITY
-
 func enter() -> void:
 	super()
 

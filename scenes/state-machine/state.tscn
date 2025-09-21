@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvvx3y7k77ap6"]
+[gd_scene load_steps=10 format=3 uid="uid://bvvx3y7k77ap6"]
 
 [ext_resource type="Script" uid="uid://j5f5a3iieeor" path="res://scenes/state-machine/scripts/state-machine.gd" id="1_ihbxb"]
 [ext_resource type="Script" uid="uid://l2p21v4g5hri" path="res://scenes/state-machine/scripts/idle.gd" id="2_y761p"]
@@ -32,3 +32,6 @@ script = ExtResource("6_lxmgx")
 
 [node name="Await" type="Node" parent="."]
 script = ExtResource("8_143yg")
+
+[node name="Damage" type="Node" parent="."]
+script = ExtResource("9_ofnwr")
