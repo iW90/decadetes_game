@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dk0yru8nkj86l"]
 
-[ext_resource type="Script" uid="uid://d04kqfgtbsfn3" path="res://scenes/characters/constructions/tower.gd" id="1_5lgs5"]
+[ext_resource type="Script" uid="uid://d04kqfgtbsfn3" path="res://scenes/constructions/tower.gd" id="1_5lgs5"]
 [ext_resource type="Texture2D" uid="uid://5e1koqyy5o15" path="res://assets/characters/tower.png" id="2_cwj8y"]
 [ext_resource type="PackedScene" uid="uid://bvvx3y7k77ap6" path="res://scenes/state-machine/state.tscn" id="3_hpyft"]
 
