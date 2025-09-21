@@ -12,4 +12,4 @@ func enter() -> void:
 		parent.modulate = Color(1, 0.3, 0.3)
 	await _damage_timer.timeout
 	parent.modulate = modulate_color
-	parent.queue_free()
+	#parent.queue_free()
