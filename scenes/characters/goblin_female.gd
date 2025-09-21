@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var available_states: Array = ["idle", "move", "jump", "fall"]
 
 @onready var face: String = "up"
-
+var health := 100
 func _ready() -> void:
 	state_machine.init(self, available_states)
 	Global.player = self
