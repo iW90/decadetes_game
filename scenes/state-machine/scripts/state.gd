@@ -14,6 +14,25 @@ func process_input(_event: InputEvent): return null
 func process_frame(_delta: float): return null
 func process_physics(_delta: float): return null
 
+func update_face_direction(direction: Vector2):
+	if not "face" in parent:
+		return
+
+	var dir: String = ""
+
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			dir = "right"
+		else:
+			dir = "left"
+	else:
+		if direction.y > 0:
+			dir = "down"
+		else:
+			dir = "up"
+	parent.face = dir
+	update_animation()
+	
 func update_animation() -> void:
 	var animation_title: String = ""
 
