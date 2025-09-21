@@ -10,7 +10,7 @@ signal defeated
 @export var face: String = "down"
 @export var auto_move_target: Vector2
 
-var health = 1 #Constants.ENEMY_HEALTH
+var health = 1
 var player = null
 
 func _ready() -> void:
@@ -30,12 +30,17 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func take_damage():
-	print("inimigo tomou dano")
 	health -= 1
 	if health <= 0:
 		state_machine.change_state_by_name("dying")
+		await die_after_animation()
 	else:
 		state_machine.change_state_by_name("hurt")
+
+func die_after_animation() -> void:
+	await get_tree().create_timer(3.0).timeout
+	queue_free()
+	emit_signal("defeated")
 
 func move_to_screen_center() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
@@ -58,7 +63,6 @@ func _on_area_2_body_exited(body: Node2D) -> void:
 
 func _on_animated_sprite_2d_animation_looped() -> void:
 	if state_machine.get_state_name() == "attack":
-		#$AttackSound.play_random_sword_sound()
 		player.take_damage(10)
 
 func coldown():
