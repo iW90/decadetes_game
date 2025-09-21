@@ -54,6 +54,9 @@ func change_state_by_name(state_name: String) -> void:
 func get_state(state_name: String) -> State:
 	return states.get(state_name.to_lower(), null)
 
+func get_state_name() -> String:
+	return current_state.name.to_lower()
+
 func process_input(event: InputEvent) -> void:
 	if current_state == null: return
 	var next = current_state.process_input(event)

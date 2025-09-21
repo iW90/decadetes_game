@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
-@onready var available_states: Array = ["idle", "jump", "fall", "auto-move", "damage"]
+@onready var available_states: Array = ["idle", "jump", "fall", "auto-move", "attack"]
 
 @export var face: String = "down"
 @export var auto_move_target: Vector2
@@ -36,3 +36,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		state_machine.change_state_by_name("auto-move")
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	if state_machine.get_state_name() == "attack":
+		player.take_damage(10)
