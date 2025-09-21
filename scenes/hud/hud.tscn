@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://05kkvktwo0k5"]
+
+[ext_resource type="FontFile" uid="uid://bulnlxj7l8y4u" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="1_48c2t"]
+[ext_resource type="Script" uid="uid://b6hi8d82xqsc3" path="res://scenes/hud/hud.gd" id="1_cgeww"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_cgeww")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1154.0
+offset_bottom = 645.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="WaveLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_48c2t")
+theme_override_font_sizes/font_size = 40
+text = "Wave: "
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_48c2t")
+theme_override_font_sizes/font_size = 40
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="TowerHealthBar" type="ProgressBar" parent="MarginContainer"]
+visible = false
+layout_mode = 2
