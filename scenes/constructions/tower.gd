@@ -5,6 +5,9 @@ extends StaticBody2D
 @onready var state_machine: Node = $State
 @onready var available_states: Array = ["await", "attack"]
 
+var ThunderboltScene = preload("res://scenes/spells/thunderbolt/thunderbolt.tscn")
+var can_attack := true
+
 func _ready() -> void:
 	state_machine.init(self, available_states)
 
@@ -18,9 +21,16 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.z_index -= 5
-	# print(body.z_index)
+func _on_tower_spell_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		can_attack = false
+		$TimeForNextAttack.start()
+		var direction = (body.global_position - global_position).normalized()
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	body.z_index += 5
+		var start_position = global_position + Vector2(35, -100)
+		var thunderbolt = ThunderboltScene.instantiate()
+		thunderbolt.initialize(start_position, direction)
+		get_parent().add_child(thunderbolt)
+
+func _on_time_for_next_attack_timeout() -> void:
+	can_attack = true

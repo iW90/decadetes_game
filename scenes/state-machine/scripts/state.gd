@@ -7,7 +7,7 @@ var game_over :=false
 
 # lifecycle hooks
 func enter() -> void:
-	update_animation()
+	update_animations()
 
 func exit() -> void: pass
 # these may return either: null, a State node, or a String state-name (case-insensitive)
@@ -53,3 +53,11 @@ func is_finish(anim:String):
 		if parent.anim.frame == 9:
 			parent.state_machine.disable()
 	parent.anim.play(anim)
+	
+func update_animations() -> void:
+	if "anims" in parent and parent.anims is Array:
+		for anim in parent.anims:
+			parent.anim = anim
+			update_animation()
+		return
+	update_animation()

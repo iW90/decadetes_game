@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://cursn1s1q1ct0" path="res://scenes/state-machine/scripts/damage.gd" id="9_ofnwr"]
 [ext_resource type="Script" uid="uid://bgd8uuo7s8l0i" path="res://scenes/state-machine/scripts/hurt.gd" id="10_k6aom"]
 [ext_resource type="Script" uid="uid://d3j4ft6p55c7f" path="res://scenes/state-machine/scripts/dying.gd" id="11_emutn"]
+[ext_resource type="Script" uid="uid://cqjnm6pe1wnug" path="res://scenes/state-machine/scripts/spell-attack.gd" id="10_k6aom"]
+[ext_resource type="Script" uid="uid://dsahtadek1j6t" path="res://scenes/state-machine/scripts/spell-damage.gd" id="11_emutn"]
 
 [node name="State" type="Node"]
 script = ExtResource("1_ihbxb")
@@ -43,4 +45,8 @@ script = ExtResource("9_ofnwr")
 script = ExtResource("10_k6aom")
 
 [node name="Dying" type="Node" parent="."]
+[node name="Spell-Attack" type="Node" parent="."]
+script = ExtResource("10_k6aom")
+
+[node name="Spell-Damage" type="Node" parent="."]
 script = ExtResource("11_emutn")
