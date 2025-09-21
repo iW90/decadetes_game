@@ -84,3 +84,7 @@ func end_game():
 func end_game_and_show_win():
 	end_game()
 	get_tree().change_scene_to_file("res://scenes/Win.tscn")
+	
+func end_game_and_show_loss():
+	end_game()
+	get_tree().change_scene_to_file("res://scenes/EndGame.tscn")

@@ -6,7 +6,7 @@ extends StaticBody2D
 @onready var time_for_next_attack: Timer = $TimeForNextAttack
 @onready var game_over_song: AudioStreamPlayer2D = $GameOverSong
 @onready var health_bar: ProgressBar = $HealthBar
-@onready var available_states: Array = ["await", "dying", "damage"]
+@onready var available_states: Array = ["await", "dying"]
 
 var ThunderboltScene = preload("res://scenes/spells/thunderbolt/thunderbolt.tscn")
 var targets: Array[Node2D] = []
@@ -44,7 +44,6 @@ func _on_time_for_next_attack_timeout() -> void:
 	send_attack()
 
 func _on_animation_damage_finished() -> void:
-	print("aqui")
 	health -= 20
 	health_bar.set_health(health)
 	anim.stop()
