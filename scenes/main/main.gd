@@ -7,9 +7,11 @@ var max_enemies := 10
 var enemy_count := 0
 
 var player = null
+var tower = null
 
 func _ready() -> void:
 	player = Global.player
+	tower = $Map/Tower
 
 func spawn_enemy():
 	if enemy_count >= max_enemies:
@@ -18,7 +20,7 @@ func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
 	enemy.position = calculate_spawn_pos()
-	enemy.move_to_position(player.global_position)
+	enemy.move_to_position(tower.global_position)
 
 func calculate_spawn_pos() -> Vector2:
 	var screen_size = get_viewport().get_visible_rect().size
