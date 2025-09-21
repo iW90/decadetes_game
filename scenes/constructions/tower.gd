@@ -11,7 +11,6 @@ var can_attack := true
 func _ready() -> void:
 	state_machine.init(self, available_states)
 
-# trying to avoid _unhandled_input
 func _input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
@@ -30,7 +29,8 @@ func _on_tower_spell_range_body_entered(body: Node2D) -> void:
 		var start_position = global_position + Vector2(35, -100)
 		var thunderbolt = ThunderboltScene.instantiate()
 		thunderbolt.initialize(start_position, direction)
-		get_parent().add_child(thunderbolt)
+		get_parent().call_deferred("add_child", thunderbolt)
+
 
 func _on_time_for_next_attack_timeout() -> void:
 	can_attack = true

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal map_position(pos: Vector2)
+signal defeated
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $State
