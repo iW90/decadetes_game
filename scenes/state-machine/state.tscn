@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scenes/state-machine/scripts/hurt.gd" id="10_k6aom"]
 [ext_resource type="Script" uid="uid://cqjnm6pe1wnug" path="res://scenes/state-machine/scripts/spell-attack.gd" id="10_qlbj2"]
 [ext_resource type="Script" uid="uid://dsahtadek1j6t" path="res://scenes/state-machine/scripts/spell-damage.gd" id="11_86yoh"]
-[ext_resource type="Script" path="res://scenes/state-machine/scripts/dying.gd" id="11_emutn"]
+[ext_resource type="Script" uid="uid://d3j4ft6p55c7f" path="res://scenes/state-machine/scripts/dying.gd" id="11_emutn"]
 
 [node name="State" type="Node"]
 script = ExtResource("1_ihbxb")
