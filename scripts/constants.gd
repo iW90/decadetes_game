@@ -3,10 +3,10 @@ extends Node
 
 const GRAVITY: float = 400.0
 const JUMP_FORCE: float = 250.0
-const CHARACTER_SPEED: float = 200.0
+const CHARACTER_SPEED: float = 300.0
 
 # Enemy specific constants
-const ENEMY_SPEED: float = 100.0
+const ENEMY_SPEED: float = 150.0
 const ENEMY_HEALTH: int = 3
 
 const KEY_JUMP: String = "ui_select"
